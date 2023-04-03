@@ -1,0 +1,134 @@
+.parent {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.parent ul {
+  display: flex;
+  flex-direction: column;
+  flex: 3 0;
+  justify-content: space-evenly;
+  border: 1px solid royalblue;
+  border-radius: 1rem;
+  list-style-type: none;
+  padding: 0;
+  margin: 0.5rem;
+}
+
+.parent ul li {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.parent ul li:last-child {
+  border: none;
+}
+.parent ul li .food-name {
+  color: royalblue;
+  opacity: 1;
+  background-color: aliceblue;
+  font-weight: 600;
+}
+.parent ul li .food-name:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.parent ul li img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 100rem;
+  object-fit: cover;
+}
+
+.parent ul li div {
+  padding: 1rem;
+}
+
+.parent ul li div:not(:first-child) {
+  flex-basis: 18%;
+}
+
+.parent ul li select {
+  width: 3rem;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid royalblue;
+  font-size: 1.05rem;
+  font-weight: 100;
+}
+
+.parent ul .remove-button {
+  border-radius: 1rem;
+  border: none;
+  padding: 0.5rem;
+  color: aliceblue;
+  opacity: 1;
+  background-color: royalblue;
+}
+.parent ul .remove-button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.parent .checkout {
+  display: flex;
+  flex-direction: column;
+  flex: 1 3;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid royalblue;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  height: 20rem;
+}
+
+.parent .checkout > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 1.35rem;
+  margin: 1rem;
+  flex: 3;
+}
+
+.parent .checkout .count {
+  margin-bottom: 1.5rem;
+}
+
+.parent .checkout .count::before {
+  content: "Total Items: ";
+  color: royalblue;
+  font-weight: 500;
+}
+.parent .checkout .total::before {
+  content: "Total Price: Ksh.";
+  color: royalblue;
+  font-weight: 500;
+}
+
+.parent .checkout a{
+  padding: 1rem;
+  color: aliceblue;
+  background-color: royalblue;
+  display: block;
+  width : 99%;
+  border-radius: 1rem;
+  text-align: center;
+  opacity: 1;
+  justify-self: center;
+}
+
+.parent .checkout a:hover{
+  opacity: 0.8;
+  cursor: pointer;
+}
+

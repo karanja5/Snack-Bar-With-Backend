@@ -1,0 +1,95 @@
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li a {
+  height: 24rem;
+  width: 23rem;
+  border: 1px solid royalblue;
+  border-radius: 1rem;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: royalblue;
+  font-size: 0.9em;
+}
+
+ul li a:hover {
+  opacity: 0.85;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+ul li a img {
+  height: 14.5rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+.content {
+  margin-top: 0.3rem;
+  padding: 0.5rem 1rem;
+  position: relative;
+  height: 7rem;
+}
+
+.favorite {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 1.2rem;
+}
+
+.favorite.not-favorite {
+  color: grey;
+}
+
+.stars {
+  margin-bottom: 0.2rem;
+}
+
+.product-footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.description{
+  flex: 9;
+}
+
+.description span{
+  border-radius: 2rem;
+  font-size: 0.85rem;
+  color: grey;
+  background-color: whitesmoke;
+  margin-right: 0.3rem;
+  margin-top: 0.01rem;
+  display: inline-block;
+}
+.wait-time{
+  font-size: 0.9rem;
+  flex: 3;
+  text-align: right;
+}
+
+.name{
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+
+.price{
+  bottom: 0;
+  left: 0.9rem;
+  padding: 0.1rem 100% 0 0;
+  color: #414141;
+  margin-top: 0.1rem;
+  font-size: 1.1rem;
+}

@@ -1,0 +1,23 @@
+<header>
+  <div class="container">
+    <a href="" routerLink="/" class="logo">Sasini Snack Bar</a>
+    <nav>
+      <ul>
+        <li>
+          <a routerLink="/login">Login</a>
+        </li>
+        <li class="menu-container">
+          <a routerLink="/dashboard">John</a>
+          <div class="menu">
+            <a routerLink="/profile" class="profile">Profile</a>
+            <a routerLink="/orders" class="orders">Orders</a>
+            <a routerLink="/logout" class="logout">Logout</a>
+          </div>
+        </li>
+        <li>
+          <a routerLink="/cart-page" class="cart-link">Cart 🛒<span class="number" *ngIf="cartQuantity" >{{cartQuantity}}</span></a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

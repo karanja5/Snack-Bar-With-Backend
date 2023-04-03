@@ -1,0 +1,105 @@
+header{
+  position: relative;
+  background-color: #333;
+  padding: 0;
+  border-bottom: 1px solid royalblue;
+}
+
+a{
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+a:hover{
+  color: royalblue;
+  cursor: pointer;
+}
+
+.container{
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a.logo{
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+nav ul {
+  display: flex;
+	list-style: none;
+  margin: 0;
+}
+
+nav ul a {
+  padding: 1em;
+  display: inline-block;
+}
+
+nav ul a span{
+  padding: 0.1rem 0.45rem;
+  border-radius: 100rem;
+  font-size: 0.9rem;
+  border: 1px solid whitesmoke;
+}
+nav ul .cart-link:hover .number{
+  border: 1px solid royalblue;
+}
+
+header .container nav ul .menu-container{
+  /* display: flex;
+  align-items: center; */
+  position: relative;
+}
+header .container nav ul .menu-container .menu{
+  position: absolute;
+  z-index: 1;
+  background-color: royalblue;
+  display: none;
+  color: whitesmoke;
+  opacity: 0.9;
+}
+header .container nav ul .menu-container:hover .menu{
+  display: block;
+}
+header .container nav ul .menu-container .menu a{
+  width: 100%;
+  min-width: 8rem;
+}
+
+
+header .container nav ul .menu-container .menu .profile{
+  opacity: 0.8;
+  color: whitesmoke;
+}
+header .container nav ul .menu-container .menu .orders{
+  opacity: 0.8;
+  color: whitesmoke;
+}
+header .container nav ul .menu-container .menu .logout{
+  opacity: 0.8;
+  color: whitesmoke;
+}
+header .container nav ul .menu-container .menu .profile:hover{
+  opacity: 1;
+  color: whitesmoke;
+  transform: scale(1.05);
+}
+header .container nav ul .menu-container .menu .orders:hover{
+  opacity: 1;
+  color: whitesmoke;
+  transform: scale(1.05);
+}
+header .container nav ul .menu-container .menu .logout:hover{
+  opacity: 1;
+  color: whitesmoke;
+  transform: scale(1.05);
+}
+
+
+
+
+
