@@ -8,7 +8,7 @@ ul {
 }
 
 ul li a {
-  height: 24rem;
+  height: 24.5rem;
   width: 23rem;
   border: 1px solid royalblue;
   border-radius: 1rem;
@@ -88,8 +88,13 @@ ul li a img {
 .price{
   bottom: 0;
   left: 0.9rem;
-  padding: 0.1rem 100% 0 0;
+  padding: 0.1rem 50% 0 0;
   color: #414141;
   margin-top: 0.1rem;
   font-size: 1.1rem;
+}
+
+.price::before{
+  content: "Ksh ";
+  font-weight: 500;
 }

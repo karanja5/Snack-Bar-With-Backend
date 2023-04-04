@@ -8,6 +8,23 @@ export const sampleTags: any[]=[
       { name: 'beverage' , count: 3},
     ];
 
+export const sampleUsers : any[]=[
+  {
+    name:"Alex Karanja",
+    email: "alex@gmail.com",
+    password: "12345",
+    address : "Limuru",
+    isAdmin : true,
+  },
+  {
+    name:"Jane Muthoni",
+    email: "jane@gmail.com",
+    password: "54321",
+    address : "Nairobi",
+    isAdmin : false,
+  }
+]
+
 export const sampleFoods: any[] = [
   {
     id: 1,
