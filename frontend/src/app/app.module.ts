@@ -14,6 +14,13 @@ import { TitleComponent } from "./components/partials/title/title.component";
 import { NotFoundComponent } from "./components/partials/not-found/not-found.component";
 import { LoginComponent } from "./components/pages/login/login.component";
 import { ReactiveFormsModule } from "@angular/forms";
+import { FooterComponent } from "./components/partials/footer/footer.component";
+import { ToastrModule } from "ngx-toastr";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { InputContainerComponent } from "./components/partials/input-container/input-container.component";
+import { InputValidationComponent } from "./components/partials/input-validation/input-validation.component";
+import { TextInputComponent } from "./components/partials/text-input/text-input.component";
+import { DefaultButtonComponent } from "./components/partials/default-button/default-button.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +33,11 @@ import { ReactiveFormsModule } from "@angular/forms";
     TitleComponent,
     NotFoundComponent,
     LoginComponent,
+    FooterComponent,
+    InputContainerComponent,
+    InputValidationComponent,
+    TextInputComponent,
+    DefaultButtonComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +45,12 @@ import { ReactiveFormsModule } from "@angular/forms";
     RatingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot({
+      timeOut: 2500,
+      positionClass: "toast-bottom-right",
+      newestOnTop: false,
+    }),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

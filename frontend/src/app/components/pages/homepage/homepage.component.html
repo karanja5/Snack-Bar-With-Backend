@@ -1,6 +1,9 @@
 <app-search></app-search>
 <app-tags-bar></app-tags-bar>
-<app-not-found [visible]="!foodsObjArr || foodsObjArr.length<=0" notFoundMessage="Product Not Available"></app-not-found>
+<app-not-found
+  [visible]="!foodsObjArr || foodsObjArr.length <= 0"
+  notFoundMessage="Product Not Available"
+></app-not-found>
 <ul>
   <li *ngFor="let food of foodsObjArr">
     <a routerLink="/food/{{ food.id }}">
@@ -16,7 +19,7 @@
           <star-rating
             [value]="food.stars"
             [totalstars]="5"
-            checkedcolor="royslblue"
+            checkedcolor="royalblue"
             uncheckedcolor="grey"
             size="22px"
             [readonly]="true"
@@ -26,16 +29,16 @@
         <div class="product-footer">
           <div class="description">
             <span>
-            {{food.description}}
+              {{ food.description }}
             </span>
           </div>
           <div class="wait-time">
             <span>🕔</span>
-            {{food.waitTime}}
+            {{ food.waitTime }}
           </div>
         </div>
         <div class="price">
-          <span>{{food.price}}</span>
+          <span>{{ food.price }}</span>
         </div>
       </div>
     </a>
