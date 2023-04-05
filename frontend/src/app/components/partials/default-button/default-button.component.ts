@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnInit, Output } from "@angular/core";
 
 @Component({
   selector: "app-default-button",
@@ -12,6 +12,7 @@ export class DefaultButtonComponent implements OnInit {
   @Input() type: "submit" | "button" = "submit";
   @Input() fontSizeRem = 1.25;
   @Input() widthSizeRem = 12;
+  // @Output() onClick =;
 
   constructor() {}
 
