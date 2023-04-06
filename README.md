@@ -1,4 +1,4 @@
-#SASINI SNACK BAR
+##SASINI SNACK BAR
 
 ## Description
 This is the second iteration of the Sasini snack bar. The goal of this project is to create a website for a fictional restaurant. The website should be responsive and accessible. The website should be built using Angular and TypeScript.
