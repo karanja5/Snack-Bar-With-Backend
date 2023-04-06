@@ -91,12 +91,17 @@ export class UserService {
     /* `.pipe` is a method in RxJS that allows you to chain multiple operators together to create a pipeline for processing 
     data emitted by an observable. In the `UserService` class, the `pipe` method is used to chain the `tap` operator to 
     the `http.post` method. The `tap` operator is used to perform side effects on the observable stream, such as saving 
-    the user to local storage or displaying a success/error message. By using `pipe`,the `login` method can apply the 
+    the user to local storage and displaying a success/error message. By using `pipe`,the `login` method can apply the 
     `tap` operator to the observable stream returned by the `http.post` method before returning it to the caller. */
     return this.http.post<User>(USER_LOGIN_URL, userLogin).pipe(
       tap({
         next: (user) => {
           this.saveUserToLocalStorage(user);
+          /* `this.userSubject.next(user);` is updating the value of the `BehaviorSubject` with the new
+          `user` object. This means that any subscribers to the `userObservable` property will
+          receive the updated `user` object. It is called within the `tap` operator of the `login`
+          method, which means that it will only be called if the login request is successful and a
+          valid `user` object is returned. */
           this.userSubject.next(user);
           this.toastrService.success(
             `Welcome to Sasini ${user.name}`,
@@ -110,16 +115,32 @@ export class UserService {
     );
   }
 
+  /**
+   * The function logs out the user by resetting the user subject, removing the user key from local
+   * storage, and reloading the page.
+   */
   logout() {
     this.userSubject.next(new User());
     localStorage.removeItem(USER_KEY);
     window.location.reload();
   }
 
+  /* `private saveUserToLocalStorage` is a private method in the `UserService` class that takes in a
+  `User` object as a parameter and saves it to local storage using the `localStorage.setItem()`
+  method. The `JSON.stringify()` method is used to convert the `User` object to a JSON string before
+  saving it to local storage. This method is called within the `tap` operator of the `login` method
+  to save the user object to local storage when the user logs in. By saving the user object to local
+  storage, the `UserService` can persist the user's login state across page refreshes or browser
+  sessions. */
   private saveUserToLocalStorage = (user: User) => {
     localStorage.setItem(USER_KEY, JSON.stringify(user));
   };
 
+  /**
+   * This function retrieves a User object from local storage or creates a new one if none exists.
+   * @returns a User object. If there is a user object stored in the local storage, it will parse the
+   * JSON string and return the User object. Otherwise, it will return a new empty User object.
+   */
   private getUserFromLocalStorage(): User {
     const userJson = localStorage.getItem(USER_KEY);
     return userJson ? (JSON.parse(userJson) as User) : new User();
