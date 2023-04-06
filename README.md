@@ -19,13 +19,13 @@ To run this project, install it locally using npm:
 $ cd ../sasini-snack-bar-with-backend
 $ npm install
 
-Then change directory to the backend folder and install the dependencies for the backend
+#Then change directory to the backend folder and install the dependencies for the backend
 $ npm start
 
-open a new terminal and change directory to the frontend folder and install the dependencies for the frontend
+#open a new terminal and change directory to the frontend folder and install the dependencies for the frontend
 $ npm start
 
-Now you can open the website in your browser at http://localhost:4200/
+#Now you can open the website in your browser at http://localhost:4200/
 ```
 
 
