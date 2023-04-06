@@ -1,3 +1,8 @@
+/* The FoodService class provides methods to retrieve food and tag data from an API using HTTP requests
+in an Angular application.  */
+/* `HttpClient` is a service provided by Angular that allows the application to make HTTP
+requests to a server to retrieve data. In this case, the `FoodService` is using
+`HttpClient` to make requests to an API to retrieve food and tag data. */
 import { Injectable } from "@angular/core";
 import { Food } from "../shared/models/food";
 import { Tags } from "../shared/models/tags";
@@ -14,6 +19,8 @@ import {
 @Injectable({
   providedIn: "root",
 })
+/* The FoodService class provides methods to retrieve food and tag data from an API using HTTP requests
+in TypeScript. */
 export class FoodService {
   constructor(private http: HttpClient) {}
 

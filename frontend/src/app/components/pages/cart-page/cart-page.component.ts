@@ -28,6 +28,12 @@ export class CartPageComponent implements OnInit {
    * into the constructor using dependency injection.
    */
   constructor(private cartService: CartService) {
+    /* This code is subscribing to the `cart` observable from the `CartService` and updating the `cart`
+    property of the `CartPageComponent` class with the latest value emitted by the observable.
+    Whenever the `cart` observable emits a new value, the arrow function passed to the `subscribe`
+    method is called with the new value as its argument, and the `cart` property of the component is
+    updated with this new value. This allows the component to always have access to the latest
+    version of the shopping cart data, and to update its view accordingly. */
     this.cartService.getCartObservable().subscribe((cart) => {
       this.cart = cart;
     });
