@@ -1,3 +1,5 @@
+/* This is the routing module for an Angular application with routes for the homepage, food page, cart
+page, and login page. */
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { HomepageComponent } from "./components/pages/homepage/homepage.component";
