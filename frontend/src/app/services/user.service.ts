@@ -1,33 +1,26 @@
-// The UserService class provides methods for user authentication and manages user data using local
-// storage.
-// `Injectable` is a decorator in Angular that marks a class as a dependency that can be
-// injected into other classes. It allows the class to be registered with the Angular injector
-// so that it can be provided as a dependency to other classes that require it. In this case,
-// the `UserService` class is marked as `@Injectable` so that it can be injected into other
-// components or services that require user authentication and management functionality.
-// -`BehaviorSubject` is a type of `Subject` in RxJS that emits the most recent value to its
-// subscribers upon subscription and then continues to emit any subsequent values. In the
-// `UserService` class, a `BehaviorSubject` is used to keep track of the current user by
-// emitting the user object to any subscribers upon subscription and whenever the user object
-// is updated. This allows other components or services that depend on the current user to
-// always have access to the most up-to-date user information.
-// -`Observable` is a class in RxJS that represents a stream of data that can be
-// observed over time. In the `UserService` class, the `userObservable` property is of
-// type `Observable<User>`, which means that it emits a stream of `User` objects.
-// Other components or services can subscribe to this observable to receive updates
-// whenever the current user changes. The `tap` operator is used to perform side
-// effects on the observable stream, such as saving the user to local storage or
-// displaying a success/error message.
-// -`tap` is an operator in RxJS that allows you to perform side
-// effects on an observable stream without modifying the stream
-// itself. In the `UserService` class, `tap` is used to save the
-// user to local storage and display a success/error message when
-// the user logs in. It is called with an object that contains
-// two properties: `next` and `error`. `next` is a function that
-// is called when the observable emits a new value, and `error`
-// is a function that is called when the observable emits an
-// error. By using `tap`, the `login` method can perform these
-// side effects without modifying the observable stream itself.
+/*The UserService class provides methods for user authentication and manages user data using local
+storage.
+`Injectable` is a decorator in Angular that marks a class as a dependency that can be injected 
+into other classes. It allows the class to be registered with the Angular injector so that it 
+can be provided as a dependency to other classes that require it. In this case, the `UserService` 
+class is marked as `@Injectable` so that it can be injected into other components or services that 
+require user authentication and management functionality.
+-`BehaviorSubject` is a type of `Subject` in RxJS that emits the most recent value to its subscribers 
+upon subscription and then continues to emit any subsequent values. In the `UserService` class, a 
+`BehaviorSubject` is used to keep track of the current user by emitting the user object to any 
+subscribers upon subscription and whenever the user object is updated. This allows other components 
+or services that depend on the current user to always have access to the most up-to-date user information.
+-`Observable` is a class in RxJS that represents a stream of data that can be observed over time. 
+In the `UserService` class, the `userObservable` property is of type `Observable<User>`, which means 
+that it emits a stream of `User` objects.Other components or services can subscribe to this observable 
+to receive updates whenever the current user changes. The `tap` operator is used to perform side effects 
+on the observable stream, such as saving the user to local storage or displaying a success/error message.
+-`tap` is an operator in RxJS that allows you to perform side effects on an observable stream without 
+modifying the stream itself. In the `UserService` class, `tap` is used to save the user to local storage 
+and display a success/error message when the user logs in. It is called with an object that contains
+two properties: `next` and `error`. `next` is a function that is called when the observable emits 
+a new value, and `error` is a function that is called when the observable emits an error. By using `tap`, 
+the `login` method can perform these side effects without modifying the observable stream itself */
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable, tap } from "rxjs";
 import { User } from "../shared/models/User";
