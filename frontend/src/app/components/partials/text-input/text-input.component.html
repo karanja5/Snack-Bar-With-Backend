@@ -1,3 +1,9 @@
+<!-- This is a code snippet written in Angular. It is creating a reusable component for an input field
+with a label and validation. The `input-container` component takes a `label` input and wraps an
+`input` element with a `formControl` input and a `placeholder` input. The `input-validation`
+component takes a `control` input and a `showErrorIf` input to display validation errors if the
+conditions are met. This code can be used to create input fields with labels and validation in an
+Angular application. -->
 <input-container [label]="label">
   <input [type]="type" [formControl]="formControl" [placeholder]="label" />
   <input-validation [control]="control" [showErrorIf]="showErrorIf">

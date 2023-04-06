@@ -39,6 +39,10 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {}
 
+  /**
+   * The function redirects to a search page with the given search term as a parameter.
+   * @param {string} term - string - a variable that represents the search term entered by the user.
+   */
   search(term: string): void {
     if (term) this.router.navigateByUrl("/search/" + term);
   }

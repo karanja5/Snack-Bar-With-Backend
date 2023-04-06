@@ -1,8 +1,12 @@
+<!-- This is a HTML code that creates a search bar with an input field and a search button. The input
+field has a placeholder text "Search For Snack" and a template reference variable `#s` is used to
+reference the input element in the template. It can be used to access the input element's properties and methods in the
+component class. In this case, it is used to get the value of the input element when the
+search button is clicked or when the enter key is pressed. The `(keyup.enter)` event is used to trigger the
+`search()` function when the enter key is pressed in the input field. The `[value]` attribute is
+used to bind the value of the input field to the `searchTerm` variable. The search button also
+triggers the `search()` function when clicked. -->
 <div>
-  <!-- `#s` is a template reference variable that is used to reference the input element in the
-  template. It can be used to access the input element's properties and methods in the
-  component class. In this case, it is used to get the value of the input element when the
-  search button is clicked or when the enter key is pressed. -->
   <input
     #s
     type="text"

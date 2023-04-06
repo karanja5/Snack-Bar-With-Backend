@@ -1,6 +1,11 @@
+<!-- This is an Angular code snippet that is using structural directives to conditionally render a div
+element and its child anchor elements. The `*ngIf` directive is checking if the `tags` variable is
+truthy, and if it is, the div and its child anchor elements will be rendered. The `*ngFor` directive
+is looping through each `tag` in the `tags` array and creating an anchor element for each one. The
+`routerLink` attribute is binding the URL path to the tag name, and the
+`{{tag.name}}({{tag.count}})` expression is displaying the tag name and its count in parentheses. -->
 <div *ngIf="tags">
-  <a *ngFor="let tag of tags" routerLink="/tag/{{tag.name}}">
-    {{tag.name}}({{tag.count}})
+  <a *ngFor="let tag of tags" routerLink="/tag/{{ tag.name }}">
+    {{ tag.name }}({{ tag.count }})
   </a>
 </div>
-
