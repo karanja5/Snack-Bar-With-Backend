@@ -1,4 +1,14 @@
 <div>
-  <input #s type="text" placeholder="Search For Snack" (keyup.enter)="search(s.value)" [value]="searchTerm">
+  <!-- `#s` is a template reference variable that is used to reference the input element in the
+  template. It can be used to access the input element's properties and methods in the
+  component class. In this case, it is used to get the value of the input element when the
+  search button is clicked or when the enter key is pressed. -->
+  <input
+    #s
+    type="text"
+    placeholder="Search For Snack"
+    (keyup.enter)="search(s.value)"
+    [value]="searchTerm"
+  />
   <button (click)="search(s.value)">Search</button>
 </div>

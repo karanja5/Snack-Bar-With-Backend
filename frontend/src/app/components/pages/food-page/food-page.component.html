@@ -7,6 +7,7 @@ loop through the tags of the food item and display them as links. -->
   [visible]="!food"
   notFoundMessage="Product Not Found"
 ></app-not-found>
+<app-title title="Food Page" margin="1.5rem 0 0 2.5rem"></app-title>
 <div *ngIf="food" class="container">
   <img [src]="food.imgUrl" [alt]="food.name" />
 

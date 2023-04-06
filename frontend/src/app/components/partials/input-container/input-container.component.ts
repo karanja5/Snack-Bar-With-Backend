@@ -6,8 +6,10 @@ import { Component, Input, OnInit } from "@angular/core";
   styleUrls: ["./input-container.component.css"],
 })
 export class InputContainerComponent implements OnInit {
+  /* `@Input()` is a decorator in Angular that allows a component to receive input values from its
+  parent component. In this case, `label` is an input property of the `InputContainerComponent`. */
   @Input() label!: string;
-  @Input() backgroundColor = "white";
+  backgroundColor = "white";
 
   constructor() {}
 

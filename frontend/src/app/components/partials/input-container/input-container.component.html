@@ -1,3 +1,7 @@
+<!-- This is an Angular component that creates a container with a label and content. The background color
+of the container is set dynamically using the `ngStyle` directive and the `backgroundColor`
+property. The label is displayed using interpolation with the `label` property. The content is
+passed in using the `ng-content` directive, which allows for dynamic content insertion. -->
 <div class="container" [ngStyle]="{ 'background-color': backgroundColor }">
   <label>
     {{ label }}

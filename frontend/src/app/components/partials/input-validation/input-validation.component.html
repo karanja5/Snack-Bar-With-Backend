@@ -1,3 +1,8 @@
+<!-- This is an Angular template code that creates a div element with a class of "error-list" and
+displays error messages if the conditions in the *ngIf directive are met. The *ngFor directive is
+used to loop through the errorMessages array and display each message in a separate div element. The
+showErrorIf variable is likely a boolean that determines whether or not to display the error
+messages. -->
 <div class="error-list" *ngIf="errorMessages && showErrorIf">
   <div *ngFor="let message of errorMessages">
     {{ message }}
