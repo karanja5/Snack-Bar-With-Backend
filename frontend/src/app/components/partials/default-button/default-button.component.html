@@ -1,3 +1,14 @@
-<div class="button">
-  <button type="submit">Login</button>
+<div class="container">
+  <button
+    [ngStyle]="{
+      color: color,
+      'background-color': backgroundColor,
+      'font-size.rem': fontSizeRem,
+      'width.rem': widthSizeRem
+    }"
+    [type]="type"
+    (click)="onClick.emit()"
+  >
+    {{ text }}
+  </button>
 </div>

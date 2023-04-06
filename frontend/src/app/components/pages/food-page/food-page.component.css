@@ -1,17 +1,17 @@
-.container{
-  display:flex;
+.container {
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   margin: 3rem;
 }
 
-.container > *{
+.container > * {
   min-width: 25rem;
   max-width: 40rem;
 }
 
-.container img{
+.container img {
   border-radius: 3rem;
   flex: 1 0;
   object-fit: cover;
@@ -19,7 +19,7 @@
   margin: 1rem;
 }
 
-.container .details{
+.container .details {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -30,19 +30,19 @@
   margin-left: 1rem;
 }
 
-.container .details .header{
+.container .details .header {
   display: flex;
   justify-content: space-between;
 }
 
-.container .details .header .name{
+.container .details .header .name {
   font-size: 2rem;
   font-weight: bold;
   color: royalblue;
 }
 
 .container .details .header .favorite {
-  font-size: 2.0rem;
+  font-size: 2rem;
   color: royalblue;
 }
 
@@ -50,61 +50,59 @@
   color: grey;
 }
 
-.container .details .description{
+.container .details .description {
   margin: 1rem 0;
   display: flex;
   flex-wrap: wrap;
 }
 
-.container .details .description span{
+.container .details .description span {
   padding: 0.5rem;
   font-size: 1.2rem;
   margin: 0.5rem 0.5rem 0.5rem 0;
 }
 
-.container .details .tags{
+.container .details .tags {
   display: flex;
   flex-wrap: wrap;
 }
 
-.container .details .tags a{
+.container .details .tags a {
   background-color: aliceblue;
   opacity: 0.65;
   padding: 0.3rem 1rem;
   margin: 0.2rem 0.15rem;
+  margin-bottom: 2rem;
   border-radius: 10rem;
   font-weight: 500;
   color: rgb(66, 56, 204);
-
 }
-.container .details .tags a:hover{
+.container .details .tags a:hover {
   cursor: pointer;
   opacity: 1;
-
 }
 
-.container .details .header .wait-time{
+.container .details .header .wait-time {
   font-weight: bold;
   margin-top: 1rem;
 }
 
-.container .details .header .wait-time span{
+.container .details .header .wait-time span {
   padding: 0.6rem 2rem 0.6rem 0;
   border-radius: 10rem;
   font-size: 1.3rem;
 }
 
-.container .details .price{
+.container .details .price {
   font-size: 1.8rem;
   margin: 2rem 2rem 2rem 0;
 }
-.container .details .price::before{
+.container .details .price::before {
   content: "Price: Ksh ";
   font-weight: 600;
-
 }
 
-.container .details button{
+.container .details button {
   color: whitesmoke;
   background-color: royalblue;
   border: none;
@@ -114,10 +112,7 @@
   width: 15rem;
   opacity: 0.8;
 }
-.container .details button:hover{
+.container .details button:hover {
   opacity: 1;
   cursor: pointer;
 }
-
-
-
