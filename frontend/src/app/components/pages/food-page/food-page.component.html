@@ -1,3 +1,8 @@
+<!-- This is a template for displaying details of a food item. The `<app-not-found>` component is used to
+display a message if the food item is not found. The `<div>` with `*ngIf="food"` is used to display
+the details of the food item if it exists. The details include an image, name, rating, description,
+tags, wait time, price, and a button to add the item to the cart. The `*ngFor` directive is used to
+loop through the tags of the food item and display them as links. -->
 <app-not-found
   [visible]="!food"
   notFoundMessage="Product Not Found"

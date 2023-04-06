@@ -1,20 +1,30 @@
+<!-- This is a block of HTML code that represents the cart page of a food ordering website. It displays a
+list of items in the cart, including their image, name, quantity, price, and a remove button. It
+also shows the total count and price of all items in the cart, and a button to proceed to checkout.
+If the cart is empty, it displays a message saying so. The code uses Angular directives such as
+*ngIf and *ngFor to conditionally render elements based on the state of the cart. -->
 <app-title title="Cart Page" margin="1.5rem 0 0 2.5rem"></app-title>
-<app-not-found [visible]="!cart || !cart.items.length"notFoundMessage="The Cart is Empty"></app-not-found>
-<div class="parent" *ngIf="cart && cart.items.length>0" >
-<ul>
-  <li *ngFor="let item of cart.items">
+<app-not-found
+  [visible]="!cart || !cart.items.length"
+  notFoundMessage="The Cart is Empty"
+></app-not-found>
+<div class="parent" *ngIf="cart && cart.items.length > 0">
+  <ul>
+    <li *ngFor="let item of cart.items">
       <div>
-        <img [src]="item.food.imgUrl" alt="item.food.name">
+        <img [src]="item.food.imgUrl" alt="item.food.name" />
       </div>
       <div>
-        <a class="food-name" routerLink="/food/{{item.food.id}}">
-          {{item.food.name}}
+        <a class="food-name" routerLink="/food/{{ item.food.id }}">
+          {{ item.food.name }}
         </a>
       </div>
       <div>
-        <select #quantitySelect
-        [value]="item.quantity"
-        (change)="changeQuantity(item,quantitySelect.value)">
+        <select
+          #quantitySelect
+          [value]="item.quantity"
+          (change)="changeQuantity(item, quantitySelect.value)"
+        >
           <option>1</option>
           <option>2</option>
           <option>3</option>
@@ -23,22 +33,22 @@
         </select>
       </div>
       <div>
-          {{item.price}}
+        {{ item.price }}
       </div>
       <div>
-        <button class="remove-button"  (click)="removeFromCart(item)">
-            Remove</button>
+        <button class="remove-button" (click)="removeFromCart(item)">
+          Remove
+        </button>
       </div>
-  </li>
-</ul>
+    </li>
+  </ul>
 
-<div class="checkout">
-  <div>
-    <div class="count">{{cart.totalCount}}</div>
-    <div class="total">{{cart.totalPrice}}</div>
+  <div class="checkout">
+    <div>
+      <div class="count">{{ cart.totalCount }}</div>
+      <div class="total">{{ cart.totalPrice }}</div>
+    </div>
+
+    <a routerLink="/checkout">Proceed to Checkout</a>
   </div>
-
-  <a routerLink="/checkout">Proceed to Checkout</a>
-
-</div>
 </div>

@@ -1,3 +1,9 @@
+/* This code defines a set of URLs that are used by the frontend to make requests to the backend. The
+`BASE_URL` variable is the root URL for the backend API, and the other URLs are constructed by
+appending specific endpoints to the `BASE_URL`. These URLs are exported as constants so that they
+can be easily imported and used in other parts of the frontend code. By using constants instead of
+hardcoding URLs, the code becomes more maintainable and flexible, as the URLs can be easily changed
+if the backend is deployed to a different location. */
 const BASE_URL = "http://localhost:5000";
 
 export const FOODS_URL = BASE_URL + "/api/foods";
