@@ -5,6 +5,7 @@ food router at the "/api/foods" path and sets up another endpoint for users at "
 import express from "express";
 import cors from "cors";
 import foodRouter from "./routers/food.router";
+import userRouter from "./routers/user.router";
 
 // Create an express application
 const app = express();
@@ -26,7 +27,7 @@ app.use(
 
 // Mount the food router at the "/api/foods" path
 app.use("/api/foods", foodRouter);
-app.use("/api/users", foodRouter);
+app.use("/api/users", userRouter);
 
 const port = 5000;
 app.listen(port, () => {
