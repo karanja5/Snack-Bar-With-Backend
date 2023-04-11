@@ -10,7 +10,6 @@ import { ActivatedRoute, Router } from "@angular/router";
 /* `import { Observable } from "rxjs";` is importing the `Observable` class from the `rxjs` library.
 This class is used to represent a stream of data that can be observed over time. It is commonly used
 in Angular applications for handling asynchronous operations such as HTTP requests. */
-import { Observable } from "rxjs";
 import { CartService } from "src/app/services/cart.service";
 import { FoodService } from "src/app/services/food.service";
 import { Food } from "src/app/shared/models/food";

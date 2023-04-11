@@ -6,7 +6,7 @@ food tags, getting food items by tag, getting a specific food item by ID, and lo
 Finally, it listens on port 5000 for incoming requests. */
 import express from "express";
 import cors from "cors";
-import { sampleFoods, sampleTags, sampleUsers } from "./data";
+import { sampleUsers } from "./data";
 import Jwt from "jsonwebtoken";
 import foodRouter from "./routers/food.router";
 
