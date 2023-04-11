@@ -7,9 +7,6 @@ routing and navigation within the application. `ActivatedRoute` provides access 
 a route associated with a component, while `Router` is used to navigate between different routes in
 the application. */
 import { ActivatedRoute, Router } from "@angular/router";
-/* `import { Observable } from "rxjs";` is importing the `Observable` class from the `rxjs` library.
-This class is used to represent a stream of data that can be observed over time. It is commonly used
-in Angular applications for handling asynchronous operations such as HTTP requests. */
 import { CartService } from "src/app/services/cart.service";
 import { FoodService } from "src/app/services/food.service";
 import { Food } from "src/app/shared/models/food";

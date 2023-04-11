@@ -8,12 +8,16 @@ import express from "express";
 import cors from "cors";
 import { sampleFoods, sampleTags, sampleUsers } from "./data";
 import Jwt from "jsonwebtoken";
+// import foodRouter from "./routers/food.router";
 
 // Create an express application
 const app = express();
 
 // Parse application/json
 app.use(express.json());
+
+// Mount the food router at the "/api/foods" path
+// app.use("/api/foods", foodRouter);
 
 /* This code is setting up the `cors` middleware to allow cross-origin requests from a specific origin.
 The `cors` middleware is used to enable cross-origin resource sharing (CORS) in the express

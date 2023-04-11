@@ -1,3 +1,11 @@
+/* Importing the `Router` class from the `express` module. The `Router` class is used to create
+modular, mountable route handlers for a web application. */
+/* `Router` is a class from the `express` module that is used to create modular, mountable
+route handlers for a web application. It allows us to define routes for different HTTP
+methods (such as GET, POST, PUT, DELETE) and handle requests to those routes with
+corresponding functions. In this code, `Router` is used to define routes for a food-related
+web application, such as getting a list of foods, searching for foods by name, getting a
+list of tags, and getting a list of foods with a specific tag. */
 import { Router } from "express";
 import { sampleFoods, sampleTags } from "../data";
 
@@ -27,7 +35,7 @@ router.get("/tag/:tagName", (req, res) => {
 
 router.get("/:foodId", (req, res) => {
   const foodId = req.params.foodId;
-  const foods = sampleFoods.find((food) => food.id == foodId)!;
+  const foods = sampleFoods.find((food) => food.id === foodId)!;
   res.send(foods);
 });
 
