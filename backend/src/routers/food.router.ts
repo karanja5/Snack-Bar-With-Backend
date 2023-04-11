@@ -35,7 +35,7 @@ router.get("/tag/:tagName", (req, res) => {
 
 router.get("/:foodId", (req, res) => {
   const foodId = req.params.foodId;
-  const foods = sampleFoods.find((food) => food.id === foodId)!;
+  const foods = sampleFoods.find((food) => food.id == foodId)!;
   res.send(foods);
 });
 

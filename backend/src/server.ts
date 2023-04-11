@@ -6,18 +6,15 @@ food tags, getting food items by tag, getting a specific food item by ID, and lo
 Finally, it listens on port 5000 for incoming requests. */
 import express from "express";
 import cors from "cors";
-import { sampleFoods, sampleTags, sampleUsers } from "./data";
+import { sampleUsers } from "./data";
 import Jwt from "jsonwebtoken";
-// import foodRouter from "./routers/food.router";
+import foodRouter from "./routers/food.router";
 
 // Create an express application
 const app = express();
 
 // Parse application/json
 app.use(express.json());
-
-// Mount the food router at the "/api/foods" path
-// app.use("/api/foods", foodRouter);
 
 /* This code is setting up the `cors` middleware to allow cross-origin requests from a specific origin.
 The `cors` middleware is used to enable cross-origin resource sharing (CORS) in the express
@@ -31,33 +28,36 @@ app.use(
   })
 );
 
-app.get("/api/foods", (req, res) => {
-  res.send(sampleFoods);
-});
+// Mount the food router at the "/api/foods" path
+app.use("/api/foods", foodRouter);
 
-app.get("/api/foods/search/:searchTerm", (req, res) => {
-  const searchTerm = req.params.searchTerm;
-  const foods = sampleFoods.filter((food) =>
-    food.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-  res.send(foods);
-});
+// app.get("/api/foods", (req, res) => {
+//   res.send(sampleFoods);
+// });
 
-app.get("/api/foods/tags", (req, res) => {
-  res.send(sampleTags);
-});
+// app.get("/api/foods/search/:searchTerm", (req, res) => {
+//   const searchTerm = req.params.searchTerm;
+//   const foods = sampleFoods.filter((food) =>
+//     food.name.toLowerCase().includes(searchTerm.toLowerCase())
+//   );
+//   res.send(foods);
+// });
 
-app.get("/api/foods/tag/:tagName", (req, res) => {
-  const tagName = req.params.tagName;
-  const foods = sampleFoods.filter((food) => food.tags?.includes(tagName));
-  res.send(foods);
-});
+// app.get("/api/foods/tags", (req, res) => {
+//   res.send(sampleTags);
+// });
 
-app.get("/api/foods/:foodId", (req, res) => {
-  const foodId = req.params.foodId;
-  const foods = sampleFoods.find((food) => food.id == foodId)!;
-  res.send(foods);
-});
+// app.get("/api/foods/tag/:tagName", (req, res) => {
+//   const tagName = req.params.tagName;
+//   const foods = sampleFoods.filter((food) => food.tags?.includes(tagName));
+//   res.send(foods);
+// });
+
+// app.get("/api/foods/:foodId", (req, res) => {
+//   const foodId = req.params.foodId;
+//   const foods = sampleFoods.find((food) => food.id == foodId)!;
+//   res.send(foods);
+// });
 
 /* This code sets up a POST endpoint at "/api/users/login" that handles user login requests. It first
 extracts the email and password from the request body using destructuring assignment. It then
@@ -95,5 +95,5 @@ const generateTokenResponse = (user: any) => {
 
 const port = 5000;
 app.listen(port, () => {
-  console.log("Website served on http://localhost:" + port);
+  console.log("API served on http://localhost:" + port + "/api/foods");
 });
