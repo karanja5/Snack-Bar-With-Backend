@@ -4,6 +4,11 @@ items, and also provides an observable of the current cart state.
 this context, the `getCartObservable()` method returns an observable of the current cart
 state, which can be subscribed to by other components to receive updates whenever the cart
 changes. */
+/* `import { BehaviorSubject } from "rxjs/internal/BehaviorSubject";` is importing the
+`BehaviorSubject` class from the `rxjs` library. `BehaviorSubject` is a type of observable that
+emits the most recent value to all subscribers upon subscription and then continues to emit any new
+values. In this case, the `BehaviorSubject` class is used to create an observable of the current
+cart state in the `CartService` class. */
 import { Injectable } from "@angular/core";
 import { Cart } from "../shared/models/Cart";
 import { BehaviorSubject } from "rxjs/internal/BehaviorSubject";

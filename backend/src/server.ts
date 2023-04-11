@@ -31,5 +31,5 @@ app.use("/api/users", userRouter);
 
 const port = 5000;
 app.listen(port, () => {
-  console.log("API served on http://localhost:" + port + "/api/foods");
+  console.log("Web server is running on http://localhost:" + port);
 });
