@@ -1,7 +1,8 @@
 {
     "workbench.settings.openDefaultSettings": true,
     "cSpell.words": [
-        "royalblue"
+        "royalblue",
+        "virtuals"
     ],
     "docwriter.hotkey.windows": "Alt + ."
 }
