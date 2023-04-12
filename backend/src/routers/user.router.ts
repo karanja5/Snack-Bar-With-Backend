@@ -8,19 +8,35 @@ The `import` statements at the beginning of the code are importing necessary mod
 import { Router } from "express";
 import { sampleUsers } from "../data";
 import Jwt from "jsonwebtoken";
+import asyncHandler from "express-async-handler";
+import { UserModel } from "../models/user.models";
 
 const router = Router();
 
-router.post("/login", (req, res) => {
-  const { email, password } = req.body;
-  const user = sampleUsers.find((user) => {
-    return user.email == email && user.password == password;
-  });
+router.get(
+  "/seed",
+  asyncHandler(async (req, res) => {
+    const usersCount = await UserModel.countDocuments();
+    if (usersCount > 0) {
+      res.send("Users already seeded");
+      return;
+    }
+    await UserModel.create(sampleUsers);
+    res.send("Users seeded");
+  })
+);
 
-  user
-    ? res.send(generateTokenResponse(user))
-    : res.status(400).send("Email or Password is invalid");
-});
+router.post(
+  "/login",
+  asyncHandler(async (req, res) => {
+    const { email, password } = req.body;
+    const user = await UserModel.findOne({ email, password });
+
+    user
+      ? res.send(generateTokenResponse(user))
+      : res.status(400).send("Email or Password is invalid");
+  })
+);
 
 /**
  * The function generates a token response for a user with a specific expiration time.
@@ -32,11 +48,17 @@ router.post("/login", (req, res) => {
 const generateTokenResponse = (user: any) => {
   const token = Jwt.sign(
     { email: user.email, isAdmin: user.isAdmin },
-    "ThisIsMyPrivateKey",
+    "ThisIsMySecretKey",
     { expiresIn: "30d" }
   );
-  user.token = token;
-  return user;
+  return {
+    id: user._id,
+    name: user.name,
+    email: user.email,
+    address: user.address,
+    isAdmin: user.isAdmin,
+    token,
+  };
 };
 
 export default router;

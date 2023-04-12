@@ -42,7 +42,7 @@ export const sampleFoods: Food[] = [
     id: 1,
     name: "Chapati Wraps",
     price: 90,
-    tags: ["breakfast", "lunch", "All", "dinner", "fast-food"],
+    tags: ["breakfast", "lunch", "dinner", "fast-food"],
     waitTime: "10min",
     imgUrl: "/assets/images/food-images/chapati-wraps.jpg",
     favorite: true,
