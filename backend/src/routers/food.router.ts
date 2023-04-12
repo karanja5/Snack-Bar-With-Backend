@@ -87,6 +87,10 @@ router.get(
   })
 );
 
+/* This code defines a route for getting a list of foods with a specific tag. It listens for GET
+requests to the "/tag/:tagName" endpoint, where ":tagName" is a dynamic parameter that can be any
+string. When a request is received, it uses the FoodModel to find all the food items in the database
+that have the specified tag, and sends the list of matching foods as a response to the client. */
 router.get(
   "/tag/:tagName",
   asyncHandler(async (req, res) => {
@@ -97,6 +101,10 @@ router.get(
   })
 );
 
+/* This code defines a route for getting a specific food item by its ID. It listens for GET requests to
+the "/:foodId" endpoint, where ":foodId" is a dynamic parameter that represents the ID of the food
+item. When a request is received, it uses the FoodModel to find the food item in the database with
+the specified ID, and sends it as a response to the client. */
 router.get(
   "/:foodId",
   asyncHandler(async (req, res) => {
