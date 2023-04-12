@@ -2,10 +2,14 @@
 handling HTTP requests. It also uses the `cors` middleware to allow cross-origin requests from a
 specific origin. Finally, it listens on port 5000 for incoming requests. The code also mounts the
 food router at the "/api/foods" path and sets up another endpoint for users at "/api/users". */
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import cors from "cors";
 import foodRouter from "./routers/food.router";
 import userRouter from "./routers/user.router";
+import { dbConnect } from "./configs/database.config";
+dbConnect();
 
 // Create an express application
 const app = express();
