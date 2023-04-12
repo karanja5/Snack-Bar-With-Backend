@@ -2,7 +2,11 @@
 arrays are used to store sample data for a food ordering application. `sampleTags` contains tags
 that can be used to categorize food items, `sampleUsers` contains user data, and `sampleFoods`
 contains information about different food items that can be ordered. */
-export const sampleTags = [
+import { Food } from "../../frontend/src/app/shared/models/food";
+import { User } from "../../frontend/src/app/shared/models/user";
+import { Tags } from "../../frontend/src/app/shared/models/tags";
+
+export const sampleTags: Tags[] = [
   { name: "All", count: 14 },
   { name: "breakfast", count: 10 },
   { name: "lunch", count: 4 },
@@ -12,24 +16,28 @@ export const sampleTags = [
   { name: "beverage", count: 3 },
 ];
 
-export const sampleUsers = [
+export const sampleUsers: User[] = [
   {
+    id: "1",
     name: "Alex Karanja",
     email: "alex@gmail.com",
     password: "12345",
     address: "Limuru",
     isAdmin: true,
+    token: "",
   },
   {
+    id: "2",
     name: "Jane Muthoni",
     email: "jane@gmail.com",
     password: "54321",
     address: "Nairobi",
     isAdmin: false,
+    token: "",
   },
 ];
 
-export const sampleFoods: any[] = [
+export const sampleFoods: Food[] = [
   {
     id: 1,
     name: "Chapati Wraps",
