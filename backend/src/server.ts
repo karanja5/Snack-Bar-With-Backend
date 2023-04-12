@@ -25,7 +25,7 @@ app.use(
   })
 );
 
-// Mount the food router at the "/api/foods" path
+// Mount the food and user router at the "/api/foods" path
 app.use("/api/foods", foodRouter);
 app.use("/api/users", userRouter);
 

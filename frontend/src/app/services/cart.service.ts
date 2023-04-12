@@ -16,6 +16,8 @@ import { Food } from "../shared/models/food";
 import { CartItem } from "../shared/models/CartItem";
 import { Observable } from "rxjs/internal/Observable";
 
+const CART_KEY = "cart";
+
 @Injectable({
   providedIn: "root",
 })
@@ -140,7 +142,7 @@ export class CartService {
     closes the browser or navigates away from the page. The next time the user visits the website,
     the `getCartFromLocalStorage()` method will retrieve the cart data from the local storage and
     initialize the `cart` property of the `CartService` class with that data. */
-    localStorage.setItem("cart", cartJson);
+    localStorage.setItem(CART_KEY, cartJson);
     this.cartSubject.next(this.cart);
     // cartSubject is a private property of the `CartService` class that is of type
     // `BehaviorSubject<Cart>`. It is used to provide an observable of the current cart state
@@ -158,7 +160,7 @@ export class CartService {
    * Cart object.
    */
   private getCartFromLocalStorage(): Cart {
-    const cartJson = localStorage.getItem("cart");
+    const cartJson = localStorage.getItem(CART_KEY);
     return cartJson ? JSON.parse(cartJson) : new Cart();
   }
 }

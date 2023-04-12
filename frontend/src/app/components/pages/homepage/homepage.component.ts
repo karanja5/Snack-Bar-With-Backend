@@ -14,7 +14,7 @@ This class is used to create and manipulate observable streams of data, which ar
 Angular applications for handling asynchronous operations such as HTTP requests. In the
 `HomepageComponent` class, it is used to create an observable stream of `Food` objects returned by
 the `FoodService` methods. */
-import { Observable } from "rxjs";
+import { Observable, switchMap } from "rxjs";
 
 @Component({
   selector: "app-homepage",
@@ -58,6 +58,12 @@ export class HomepageComponent implements OnInit {
     the `getAllFoods()` method of the `FoodService` to retrieve all food items. It then subscribes
     to the observable returned by the `FoodService` method and assigns the returned `Food` objects
     to the `foodsObjArr` array. */
+    //  foodsObservable= activatedRoute.params.pipe(
+    //     switchMap((params) => return this.foodService.getFoodBySearchTerm(
+    //       params.searchTerm
+    //     );
+    //   )
+
     activatedRoute.params.subscribe((params) => {
       if (params.searchTerm)
         foodsObservable = this.foodService.getFoodBySearchTerm(

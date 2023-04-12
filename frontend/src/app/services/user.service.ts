@@ -81,7 +81,7 @@ export class UserService {
    * @returns The `login` method is returning an Observable of type `User`.
    */
   login(userLogin: IUserLogin): Observable<User> {
-    /* `.pipe` is a method in RxJS that allows you to chain multiple operators together to create a pipeline for processing 
+    /*`.pipe` is a method in RxJS that allows you to chain multiple operators together to create a pipeline for processing
     data emitted by an observable. In the `UserService` class, the `pipe` method is used to chain the `tap` operator to 
     the `http.post` method. The `tap` operator is used to perform side effects on the observable stream, such as saving 
     the user to local storage and displaying a success/error message. By using `pipe`,the `login` method can apply the 
