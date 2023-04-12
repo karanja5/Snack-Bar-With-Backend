@@ -35,7 +35,8 @@ router.get("/tag/:tagName", (req, res) => {
 
 router.get("/:foodId", (req, res) => {
   const foodId = req.params.foodId;
-  const foods = sampleFoods.find((food) => food.id === foodId)!;
+  const foodIdAsNumber = parseInt(foodId);
+  const foods = sampleFoods.find((food) => food.id === foodIdAsNumber)!;
   res.send(foods);
 });
 
