@@ -1,5 +1,9 @@
 import { Schema, model } from "mongoose";
 
+/* The `export interface IFood` is defining the structure of a food item object in TypeScript. It
+specifies the properties of a food item, such as its `id`, `name`, `description`, `price`, `tags`,
+`imgUrl`, `favorite`, `stars`, and `waitTime`. This interface can be used to ensure that objects
+passed around in the code conform to this structure and have all the required properties. */
 export interface IFood {
   id: number;
   name: string;
@@ -12,6 +16,11 @@ export interface IFood {
   waitTime: string;
 }
 
+/* This code defines a Mongoose schema for a food item in a restaurant menu. The schema specifies the
+properties of a food item, such as its name, description, price, tags, image URL, and other
+attributes. It also includes options for the schema, such as enabling virtuals and timestamps. The
+schema is exported as `FoodSchema` for use in creating a Mongoose model for the "Food" collection in
+the database. */
 export const FoodSchema = new Schema<IFood>(
   {
     name: { type: String, required: true },

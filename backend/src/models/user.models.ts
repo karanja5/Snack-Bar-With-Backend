@@ -1,5 +1,8 @@
 import { Schema, model } from "mongoose";
 
+/* `export interface IUser` is defining an interface for a user object with properties `id`, `name`,
+`email`, `password`, `address`, and `isAdmin`. This interface can be used to define the shape of
+objects that will be stored in the database and retrieved from it. */
 export interface IUser {
   id: number;
   name: string;
@@ -9,6 +12,13 @@ export interface IUser {
   isAdmin: boolean;
 }
 
+/* This code defines a Mongoose schema for a user in a MongoDB database. The schema defines the
+structure of the user document, including the fields `name`, `email`, `password`, `address`, and
+`isAdmin`. The `required` property is set to `true` for all fields except `isAdmin`, which has a
+default value of `false`. The schema also includes options for `toJSON`, `toObject`, and
+`timestamps`. The `toJSON` and `toObject` options are used to include virtual properties in the
+serialized output of the schema, and the `timestamps` option is used to automatically add
+`createdAt` and `updatedAt` fields to the user document. */
 export const UserSchema = new Schema<IUser>(
   {
     name: { type: String, required: true },

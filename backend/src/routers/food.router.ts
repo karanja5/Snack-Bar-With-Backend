@@ -7,24 +7,25 @@ corresponding functions. In this code, `Router` is used to define routes for a f
 web application, such as getting a list of foods, searching for foods by name, getting a
 list of tags, and getting a list of foods with a specific tag. */
 import { Router } from "express";
-import { sampleFoods, sampleTags } from "../data";
+// import { sampleFoods } from "../data/sample-foods"; //I don't need this anymore because I have seeded the database
 import asyncHandler from "express-async-handler";
 import { FoodModel } from "../models/food.model";
 
 const router = Router();
 
-router.get(
-  "/seed",
-  asyncHandler(async (req, res) => {
-    const foodsCount = await FoodModel.countDocuments();
-    if (foodsCount > 0) {
-      res.send("Foods already seeded");
-      return;
-    }
-    await FoodModel.create(sampleFoods);
-    res.send("Foods seeded");
-  })
-);
+// router.get(
+//   "/seed",
+//   asyncHandler(async (req, res) => {
+//     const foodsCount = await FoodModel.countDocuments();
+//     if (foodsCount > 0) {
+//       res.send("Foods already seeded");
+//       return;
+//     }
+//     await FoodModel.create(sampleFoods);
+//     res.send("Foods seeded");
+//   })
+// );
+//I have already seeded the database so I don't need to seed it again
 
 router.get(
   "/",
@@ -50,6 +51,12 @@ router.get(
   })
 );
 
+/* This code defines a route for getting a list of tags for the food items in the database. It listens
+for GET requests to the "/tags" endpoint. When a request is received, it uses the FoodModel to
+aggregate the tags for all the food items in the database. It then sorts the tags by the number of
+food items that have each tag, and sends the list of tags and their counts as a response to the
+client. The "All" tag is also added to the beginning of the list with the count of all the food
+items in the database. */
 router.get(
   "/tags",
   asyncHandler(async (req, res) => {
