@@ -107,12 +107,15 @@
   background-color: royalblue;
   border: none;
   font-size: 1.2rem;
-  border-radius: 10rem;
+  border-radius: 1rem;
   padding: 1rem;
   width: 15rem;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 .container .details button:hover {
   opacity: 1;
   cursor: pointer;
+  border-radius: 10rem;
+  transition: 0.5s ease-in-out;
+  transform: scale(1.04);
 }
