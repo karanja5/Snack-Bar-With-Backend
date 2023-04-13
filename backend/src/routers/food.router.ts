@@ -10,7 +10,6 @@ import { Router } from "express";
 // import { sampleFoods } from "../data/sample-foods"; //I don't need this anymore because I have seeded the database
 import asyncHandler from "express-async-handler";
 import { FoodModel } from "../models/food.model";
-import { isExportDeclaration } from "typescript";
 
 const router = Router();
 
