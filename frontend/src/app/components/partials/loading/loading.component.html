@@ -1,0 +1,15 @@
+<!-- This is an HTML code block that is using Angular's structural directive `*ngIf` to conditionally
+render the content inside the `div` element with class `container`. The condition being checked is
+the value of the `isLoadingBool` variable. If it is true, the content inside the `div` element with
+class `details` will be displayed, which includes an image of a spinner and the text "Loading...".
+This is commonly used to display a loading screen or spinner while waiting for data to load
+asynchronously. -->
+<div class="container" *ngIf="isLoadingBool">
+  <div class="details">
+    <img
+      src="../../../../assets/images/food-images/Spinner-1s-200px.svg"
+      alt="Loading Screen"
+    />
+    <h1>Loading...</h1>
+  </div>
+</div>
