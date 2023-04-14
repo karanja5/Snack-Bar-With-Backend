@@ -108,6 +108,10 @@ export class UserService {
     );
   }
 
+  get currentUser(): User {
+    return this.userSubject.value;
+  }
+
   /**
    * The function logs out the user by resetting the user subject, removing the user key from local
    * storage, and reloading the page.
