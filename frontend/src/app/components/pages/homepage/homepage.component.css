@@ -22,8 +22,9 @@ ul li a {
 
 ul li a:hover {
   opacity: 0.85;
-  transform: scale(1.05);
+  transform: scale(1.035);
   cursor: pointer;
+  transition: 0.5s ease-in-out;
 }
 
 ul li a img {
@@ -54,17 +55,17 @@ ul li a img {
   margin-bottom: 0.2rem;
 }
 
-.product-footer{
+.product-footer {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 }
 
-.description{
+.description {
   flex: 9;
 }
 
-.description span{
+.description span {
   border-radius: 2rem;
   font-size: 0.85rem;
   color: grey;
@@ -73,19 +74,19 @@ ul li a img {
   margin-top: 0.01rem;
   display: inline-block;
 }
-.wait-time{
+.wait-time {
   font-size: 0.9rem;
   flex: 3;
   text-align: right;
 }
 
-.name{
+.name {
   font-size: 1.2em;
   font-weight: bold;
   margin-bottom: 0.2rem;
 }
 
-.price{
+.price {
   bottom: 0;
   left: 0.9rem;
   padding: 0.1rem 50% 0 0;
@@ -94,7 +95,7 @@ ul li a img {
   font-size: 1.1rem;
 }
 
-.price::before{
+.price::before {
   content: "Ksh ";
   font-weight: 500;
 }
