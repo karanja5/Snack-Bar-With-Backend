@@ -123,6 +123,10 @@ export class CartService {
     return this.cartSubject.asObservable();
   }
 
+  getCart(): Cart {
+    return this.cartSubject.value;
+   }
+
   /**
    * The function calculates the total price and count of items in the cart, converts the cart object
    * to JSON format, and stores it in the browser's local storage.
