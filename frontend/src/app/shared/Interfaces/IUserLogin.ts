@@ -2,6 +2,6 @@
 `password`, both of type `string`. The `export` keyword makes this interface available for use in
 other modules. */
 export interface IUserLogin {
-  email: string;
+  phoneNumber: string;
   password: string;
 }
