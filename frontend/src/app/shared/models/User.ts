@@ -3,9 +3,7 @@ address, isAdmin status, and token. */
 export class User {
   id!: string;
   name!: string;
-  email!: string;
   password!: string;
-  address!: string;
-  isAdmin!: boolean;
+  phoneNumber!: string;
   token!: string;
 }
