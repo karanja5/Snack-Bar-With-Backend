@@ -5,5 +5,11 @@
       <text-input [control]="fc.name" label="Name"></text-input>
       <text-input [control]="fc.phoneNumber" label="Phone Number"></text-input>
     </form>
+    <order-items-list [order]="order"></order-items-list>
+    <div class="buttons-container">
+      <div class="buttons">
+        <button (click)="createOrder()">Make Payment</button>
+      </div>
+    </div>
   </div>
 </div>
