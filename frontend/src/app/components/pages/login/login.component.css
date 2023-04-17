@@ -1,4 +1,4 @@
-.container{
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,12 +6,19 @@
   margin-top: 3rem;
 }
 
-.details{
+.details {
   width: 28rem;
 }
 
-.form{
+.form {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
 }
