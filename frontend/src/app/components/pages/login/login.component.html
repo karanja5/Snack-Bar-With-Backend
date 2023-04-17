@@ -9,10 +9,9 @@ displayed. The submit button is a custom component called "default-button" with 
     <app-title title="Login"></app-title>
     <form [formGroup]="loginForm" (ngSubmit)="submit()">
       <text-input
-        [control]="fC.email"
+        [control]="fC.phoneNumber"
         [showErrorIf]="isSubmitted"
-        type="email"
-        label="Email"
+        label="Phone Number"
       ></text-input>
       <text-input
         [control]="fC.password"
@@ -21,6 +20,12 @@ displayed. The submit button is a custom component called "default-button" with 
         label="Password"
       ></text-input>
       <default-button text="Login"></default-button>
+      <div class="register">
+        New User? &nbsp;
+        <a routerLink="/register" [queryParams]="{ returnUrl: returnUrl }"
+          >Register</a
+        >
+      </div>
     </form>
   </div>
 </div>
