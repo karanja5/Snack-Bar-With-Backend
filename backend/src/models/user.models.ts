@@ -6,10 +6,8 @@ objects that will be stored in the database and retrieved from it. */
 export interface IUser {
   id: number;
   name: string;
-  email: string;
   password: string;
-  address: string;
-  isAdmin: boolean;
+  phoneNumber: string;
 }
 
 /* This code defines a Mongoose schema for a user in a MongoDB database. The schema defines the
@@ -22,10 +20,8 @@ serialized output of the schema, and the `timestamps` option is used to automati
 export const UserSchema = new Schema<IUser>(
   {
     name: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    address: { type: String, required: true },
-    isAdmin: { type: Boolean, default: false },
+    phoneNumber: { type: String, required: true },
   },
   {
     toJSON: /*This is for having the ids*/ {
