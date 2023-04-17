@@ -26,8 +26,9 @@ import { BehaviorSubject, Observable, tap } from "rxjs";
 import { User } from "../shared/models/User";
 import { IUserLogin } from "../shared/Interfaces/IUserLogin";
 import { HttpClient } from "@angular/common/http";
-import { USER_LOGIN_URL } from "../shared/constants/urls";
+import { USER_LOGIN_URL, USER_REGISTER_URL } from "../shared/constants/urls";
 import { ToastrService } from "ngx-toastr";
+import { IUserRegister } from "../shared/Interfaces/IUserRegister";
 
 /* `const USER_KEY = "User";` is declaring a constant variable `USER_KEY` and assigning it the value
 `"User"`. This constant is used as a key to store and retrieve the user object from local storage.
@@ -110,6 +111,23 @@ export class UserService {
 
   get currentUser(): User {
     return this.userSubject.value;
+  }
+  register(userRegister: IUserRegister): Observable<User> {
+    return this.http.post<User>(USER_REGISTER_URL, userRegister).pipe(
+      tap({
+        next: (user) => {
+          this.saveUserToLocalStorage(user);
+          this.userSubject.next(user);
+          this.toastrService.success(
+            `Welcome to Sasini ${user.name}`,
+            "You have Registered Successfully"
+          );
+        },
+        error: (eRes) => {
+          this.toastrService.error(eRes.error, "Unsuccessful Registration");
+        },
+      })
+    );
   }
 
   /**
