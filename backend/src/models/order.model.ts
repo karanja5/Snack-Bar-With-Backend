@@ -1,6 +1,7 @@
-import { Schema, model } from "mongoose";
+import { Schema, Types, model } from "mongoose";
 import { Food } from "../../../frontend/src/app/shared/models/food";
 import { FoodSchema } from "./food.model";
+import { OrderStatus } from "../constants/order_status_enum";
 
 /* The `export interface IOrder` is defining the structure of an order object in TypeScript. It
 specifies the properties of an order, such as its `id`, `userId`, `items`, `total`, `status`, and
@@ -22,13 +23,37 @@ export const OrderItemSchema = new Schema<IOrderItem>({
   quantity: { type: Number, required: true },
 });
 
-export class Order {
-  id!: number;
-  items!: IOrderItem[];
-  totalPrice!: number;
-  totalQuantity!: number;
-  name!: string;
-  phoneNumber!: string;
-  createdAt!: Date;
-  status!: string;
+export interface IOrder {
+  id: string;
+  items: IOrderItem[];
+  totalPrice: number;
+  totalQuantity: number;
+  name: string;
+  phoneNumber: string;
+  status: OrderStatus;
+  user: Types.ObjectId;
+  createdAt: Date;
+  updatedAt: Date;
 }
+
+export const OrderSchema = new Schema<IOrder>(
+  {
+    name: { type: String, required: true },
+    phoneNumber: { type: String, required: true },
+    items: { type: [OrderItemSchema], required: true },
+    totalPrice: { type: Number, required: true },
+    status: { type: String, default: OrderStatus.NEW },
+    user: { type: Schema.Types.ObjectId, required: true },
+  },
+  {
+    timestamps: true,
+    toJSON: {
+      virtuals: true,
+    },
+    toObject: {
+      virtuals: true,
+    },
+  }
+);
+
+export const OrderModel = model<IOrder>("Order", OrderSchema);
