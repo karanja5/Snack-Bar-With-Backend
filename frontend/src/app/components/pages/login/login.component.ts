@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
    */
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      email: ["", [Validators.required, Validators.email]],
+      phoneNumber: ["+254", [Validators.required, Validators.minLength(13)]],
       password: ["", Validators.required],
     });
 
@@ -84,7 +84,7 @@ export class LoginComponent implements OnInit {
     redirecting them to the appropriate page after successful login. */
     this.userService
       .login({
-        email: this.fC.email.value,
+        phoneNumber: this.fC.phoneNumber.value,
         password: this.fC.password.value,
       })
       .subscribe(() => {
