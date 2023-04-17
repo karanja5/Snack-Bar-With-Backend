@@ -30,7 +30,8 @@ fails. This object is used in the `checkValidation` method to retrieve the error
 error in the `AbstractControl` and display it to the user. */
 const VALIDATOR_MESSAGES: any = {
   required: "This field cannot be empty",
-  email: "Please enter a valid email address",
+  minlength: "Invalid field length",
+  passwordMismatch: "Passwords do not match",
 };
 
 @Component({
