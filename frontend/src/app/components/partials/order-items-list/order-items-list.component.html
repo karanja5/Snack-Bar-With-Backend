@@ -1,1 +1,27 @@
-<p>order-items-list works!</p>
+<div class="container">
+  <table>
+    <tr class="row">
+      <td colspan="5">
+        <h3>Order Items</h3>
+      </td>
+    </tr>
+    <tr *ngFor="let item of order.items" class="row">
+      <td colspan="1">
+        <a routerLink="/food/{{ item.food.id }}">
+          <img [src]="item.food.imgUrl" alt="food image" />
+        </a>
+      </td>
+      <td colspan="1">{{ item.food.name }}</td>
+      <td class="price" colspan="1">{{ item.food.price }}</td>
+      <td colspan="1">{{ item.quantity }}</td>
+      <td class="price" colspan="1">{{ item.price }}</td>
+    </tr>
+    <tr>
+      <td colspan="2"></td>
+      <td colspan="2"><strong>Total Amount:</strong></td>
+      <td class="price">
+        <strong>{{ order.totalPrice }}</strong>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,52 @@
+.container {
+  border: 1px solid #ccc;
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table .row {
+  border-bottom: 1px solid #ccc;
+}
+
+table tr td h3 {
+  margin-top: 0.5rem;
+  margin-left: 0.3rem;
+  padding: 0;
+}
+
+table tr td a {
+  text-decoration: none;
+  opacity: 1;
+}
+
+table tr td a:hover {
+  opacity: 0.85;
+  transition: 0.5s ease-in-out;
+}
+
+table tr td {
+  height: 3rem;
+}
+
+table tr td img {
+  width: 3rem;
+  height: 3rem;
+  object-fit: cover;
+  border-radius: 100rem;
+}
+
+table tr td img:hover {
+  transform: scale(1.05);
+  transition: 0.5s ease-in-out;
+}
+
+.price::before {
+  content: "Ksh.";
+}
