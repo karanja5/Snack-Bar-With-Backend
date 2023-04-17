@@ -1,10 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { CartService } from "src/app/services/cart.service";
+import { OrderService } from "src/app/services/order.service";
 import { UserService } from "src/app/services/user.service";
 import { Order } from "src/app/shared/models/Order";
-
 @Component({
   selector: "app-checkout-page",
   templateUrl: "./checkout-page.component.html",
@@ -18,7 +19,9 @@ export class CheckoutPageComponent implements OnInit {
     private cartService: CartService,
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private toastrService: ToastrService
+    private orderService: OrderService,
+    private toastrService: ToastrService,
+    private router: Router
   ) {
     const cart = this.cartService.getCart();
     this.order.items = cart.items;
@@ -26,9 +29,10 @@ export class CheckoutPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    let { name, phoneNumber } = this.userService.currentUser;
     this.checkoutForm = this.formBuilder.group({
-      name: ["", Validators.required],
-      phoneNumber: ["+254", Validators.required],
+      name: [name, Validators.required],
+      phoneNumber: [phoneNumber, Validators.required],
     });
   }
 
@@ -45,8 +49,16 @@ export class CheckoutPageComponent implements OnInit {
       return;
     }
 
-    this.order.name = this.checkoutForm.value.name;
-    this.order.phoneNumber = this.checkoutForm.value.phoneNumber;
-    console.log(this.order);
+    this.order.name = this.fc.name.value;
+    this.order.phoneNumber = this.fc.phoneNumber.value;
+    this.orderService.create(this.order).subscribe({
+      next: () => {
+        this.toastrService.success("Order created successfully");
+        this.router.navigateByUrl("/payment");
+      },
+      error: (eResponse) => {
+        this.toastrService.error(eResponse.error.message, "Cart");
+      },
+    });
   }
 }
