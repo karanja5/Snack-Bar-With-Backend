@@ -10,6 +10,8 @@ import { Router } from "express";
 import Jwt from "jsonwebtoken";
 import asyncHandler from "express-async-handler";
 import { UserModel } from "../models/user.models";
+import bcrypt from "bcryptjs";
+import { User } from "../../../frontend/src/app/shared/models/User";
 
 const router = Router();
 
@@ -36,15 +38,41 @@ status code with an error message indicating that the email or password is inval
 router.post(
   "/login",
   asyncHandler(async (req, res) => {
-    const { email, password } = req.body;
-    const user = await UserModel.findOne({ email, password });
+    const { phoneNumber, password } = req.body;
+    const user = await UserModel.findOne({ phoneNumber });
 
-    user
+    user && (await bcrypt.compare(password, user.password))
       ? res.send(generateTokenResponse(user))
-      : res.status(400).send("Email or Password is invalid");
+      : res.status(400).send("PhoneNumber or Password is invalid");
   })
 );
 
+router.post(
+  "/register",
+  asyncHandler(async (req, res) => {
+    const { name, password, phoneNumber } = req.body;
+    const user = await UserModel.findOne({ phoneNumber });
+    if (user) {
+      res
+        .status(400)
+        .send("User already exists,Retry with a different phone number");
+      return;
+    }
+
+    const encryptedPassword = await bcrypt.hash(password, 8);
+
+    const newUser: User = {
+      id: "",
+      name,
+      phoneNumber,
+      password: encryptedPassword,
+      token: "",
+    };
+
+    const dbUser = await UserModel.create(newUser);
+    res.send(generateTokenResponse(dbUser));
+  })
+);
 /**
  * The function generates a token response containing user information and a JWT token.
  * @param {any} user - The `user` parameter is an object that contains information about a user, such
@@ -57,17 +85,13 @@ router.post(
  * property is generated using the `jsonwebtoken` library
  */
 const generateTokenResponse = (user: any) => {
-  const token = Jwt.sign(
-    { email: user.email, isAdmin: user.isAdmin },
-    "ThisIsMySecretKey",
-    { expiresIn: "30d" }
-  );
+  const token = Jwt.sign({ email: user.phoneNumber }, process.env.JWT_SECRET!, {
+    expiresIn: "30d",
+  });
   return {
     id: user._id,
     name: user.name,
-    email: user.email,
-    address: user.address,
-    isAdmin: user.isAdmin,
+    phoneNumber: user.phoneNumber,
     token,
   };
 };
