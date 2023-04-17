@@ -10,7 +10,6 @@ input {
 }
 
 input:focus {
-  /* border-bottom: 1px solid royalblue; */
   border-width: 2.9px;
 }
 
