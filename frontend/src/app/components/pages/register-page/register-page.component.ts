@@ -28,7 +28,14 @@ export class RegisterPageComponent implements OnInit {
         name: ["", [Validators.required, Validators.minLength(4)]],
         password: ["", [Validators.required, Validators.minLength(4)]],
         confirmPassword: ["", [Validators.required, Validators.minLength(4)]],
-        phoneNumber: ["+254", [Validators.required, Validators.minLength(13)]],
+        phoneNumber: [
+          "+254",
+          [
+            Validators.required,
+            Validators.minLength(13),
+            Validators.maxLength(13),
+          ],
+        ],
       },
       {
         validators: PasswordMatchValidator("password", "confirmPassword"),
