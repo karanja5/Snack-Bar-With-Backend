@@ -9,10 +9,10 @@ import { Router } from "express";
 // import { sampleUsers } from "../data"; //I don't need this anymore because I have seeded the database
 import Jwt from "jsonwebtoken";
 import asyncHandler from "express-async-handler";
-import { UserModel } from "../models/user.models";
+import { IUser, UserModel } from "../models/user.models";
 import bcrypt from "bcryptjs";
-import { User } from "../../../frontend/src/app/shared/models/User";
 
+const BAD_REQUEST = 400;
 const router = Router();
 
 // router.get(
@@ -43,7 +43,7 @@ router.post(
 
     user && (await bcrypt.compare(password, user.password))
       ? res.send(generateTokenResponse(user))
-      : res.status(400).send("PhoneNumber or Password is invalid");
+      : res.status(BAD_REQUEST).send("PhoneNumber or Password is invalid");
   })
 );
 
@@ -54,14 +54,14 @@ router.post(
     const user = await UserModel.findOne({ phoneNumber });
     if (user) {
       res
-        .status(400)
+        .status(BAD_REQUEST)
         .send("User already exists,Retry with a different phone number");
       return;
     }
 
     const encryptedPassword = await bcrypt.hash(password, 8);
 
-    const newUser: User = {
+    const newUser: IUser = {
       id: "",
       name,
       phoneNumber,
@@ -84,17 +84,27 @@ router.post(
  * `isAdmin` are taken from the `user` object passed as an argument to the function. The `token`
  * property is generated using the `jsonwebtoken` library
  */
-const generateTokenResponse = (user: any) => {
-  const token = Jwt.sign({ email: user.phoneNumber }, process.env.JWT_SECRET!, {
-    expiresIn: "30d",
-  });
+const generateTokenResponse = (user: IUser) => {
+  /* This code is generating a JSON Web Token (JWT) using the `jsonwebtoken` library. The `Jwt.sign()`
+  method takes three arguments: an object containing the payload data to be included in the token, a
+  secret key used to sign the token, and an options object that specifies the token's expiration
+  time. */
+  const token = Jwt.sign(
+    { id: user.id, phoneNumber: user.phoneNumber, name: user.name },
+    process.env.JWT_SECRET!,
+    {
+      expiresIn: "30d",
+    }
+  );
   return {
-    id: user._id,
+    id: user.id,
     name: user.name,
     phoneNumber: user.phoneNumber,
     token,
   };
 };
+// The token is stored in the browser's local storage. The token is sent to the server in the
+// Authorization header of the request. The server uses the token to authenticate the user.
 
 export default router;
 /* This code defines a route for getting a specific food item by its ID. It listens for GET requests to
