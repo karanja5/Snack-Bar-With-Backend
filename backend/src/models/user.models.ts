@@ -4,10 +4,11 @@ import { Schema, model } from "mongoose";
 `email`, `password`, `address`, and `isAdmin`. This interface can be used to define the shape of
 objects that will be stored in the database and retrieved from it. */
 export interface IUser {
-  id: number;
+  id: string;
   name: string;
   password: string;
   phoneNumber: string;
+  token: string;
 }
 
 /* This code defines a Mongoose schema for a user in a MongoDB database. The schema defines the
