@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit {
    * actions. If the login is successful, the user will be redirected to the page specified by
    * `this.returnUrl`. No other values are being returned explicitly in this function.
    */
-  submit() {
+  submitForm() {
     this.isSubmitted = true;
     if (this.loginForm.invalid) return;
 

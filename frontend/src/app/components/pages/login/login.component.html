@@ -7,7 +7,7 @@ displayed. The submit button is a custom component called "default-button" with 
 <div class="container">
   <div class="details">
     <app-title title="Login"></app-title>
-    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+    <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
       <text-input
         [control]="fC.phoneNumber"
         [showErrorIf]="isSubmitted"
