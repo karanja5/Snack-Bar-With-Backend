@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="content">
+    <app-title title="Confirmation Page" fontSize="1.5rem"></app-title>
+    <div class="summary">
+      <div>
+        <h3 class="label"><strong>Name</strong></h3>
+        <span class="value">{{ currentOrder.name }}</span>
+      </div>
+      <div>
+        <h3 class="label"><strong>Phone Number</strong></h3>
+        <span class="value">{{ currentOrder.phoneNumber }}</span>
+      </div>
+    </div>
+
+    <order-items-list [order]="currentOrder"></order-items-list>
+    <div class="buttons-container">
+      <div class="buttons"></div>
+    </div>
+  </div>
+</div>
