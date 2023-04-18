@@ -25,9 +25,11 @@ import { TextInputComponent } from "./components/partials/text-input/text-input.
 import { DefaultButtonComponent } from "./components/partials/default-button/default-button.component";
 import { LoadingComponent } from "./components/partials/loading/loading.component";
 import { ShowLoadingInterceptor } from "./shared/interceptors/show-loading.interceptor";
-import { CheckoutPageComponent } from './components/pages/checkout-page/checkout-page.component';
-import { OrderItemsListComponent } from './components/partials/order-items-list/order-items-list.component';
-import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
+import { TokenAuthenticatorInterceptor } from "./auth/token-authenticator.interceptor";
+import { CheckoutPageComponent } from "./components/pages/checkout-page/checkout-page.component";
+import { OrderItemsListComponent } from "./components/partials/order-items-list/order-items-list.component";
+import { RegisterPageComponent } from "./components/pages/register-page/register-page.component";
+import { PaymentPageComponent } from "./components/pages/payment-page/payment-page.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +51,7 @@ import { RegisterPageComponent } from './components/pages/register-page/register
     CheckoutPageComponent,
     OrderItemsListComponent,
     RegisterPageComponent,
+    PaymentPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,6 +70,11 @@ import { RegisterPageComponent } from './components/pages/register-page/register
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ShowLoadingInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenAuthenticatorInterceptor,
       multi: true,
     },
   ],
