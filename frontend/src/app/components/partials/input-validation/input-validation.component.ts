@@ -31,7 +31,8 @@ error in the `AbstractControl` and display it to the user. */
 const VALIDATOR_MESSAGES: any = {
   required: "This field cannot be empty",
   minlength: "Invalid field length",
-  passwordMismatch: "Passwords do not match",
+  maxlength: "Field length exceeded",
+  passwordMismatch: "Password and Confirm password fields do not match",
 };
 
 @Component({
