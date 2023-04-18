@@ -51,10 +51,11 @@ export class CheckoutPageComponent implements OnInit {
 
     this.order.name = this.fc.name.value;
     this.order.phoneNumber = this.fc.phoneNumber.value;
+
     this.orderService.create(this.order).subscribe({
       next: () => {
-        this.toastrService.success("Order created successfully");
         this.router.navigateByUrl("/payment");
+        this.toastrService.success("Order created", "Success");
       },
       error: (eResponse) => {
         this.toastrService.error(eResponse.error.message, "Cart");
