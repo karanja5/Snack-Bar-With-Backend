@@ -29,6 +29,7 @@ export interface IOrder {
   totalPrice: number;
   totalQuantity: number;
   name: string;
+  email: string;
   phoneNumber: string;
   status: OrderStatus;
   user: Types.ObjectId;
@@ -39,7 +40,8 @@ export interface IOrder {
 export const OrderSchema = new Schema<IOrder>(
   {
     name: { type: String, required: true },
-    phoneNumber: { type: String, required: true },
+    phoneNumber: { type: String, required: true, unique: true },
+    email: { type: String, required: true, unique: true },
     items: { type: [OrderItemSchema], required: true },
     totalPrice: { type: Number, required: true },
     status: { type: String, default: OrderStatus.NEW },
