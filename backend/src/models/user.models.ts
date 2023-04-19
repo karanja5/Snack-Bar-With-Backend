@@ -6,6 +6,7 @@ objects that will be stored in the database and retrieved from it. */
 export interface IUser {
   id: string;
   name: string;
+  email: string;
   password: string;
   phoneNumber: string;
   token: string;
@@ -21,8 +22,9 @@ serialized output of the schema, and the `timestamps` option is used to automati
 export const UserSchema = new Schema<IUser>(
   {
     name: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    phoneNumber: { type: String, required: true },
+    phoneNumber: { type: String, required: true, unique: true },
   },
   {
     toJSON: /*This is for having the ids*/ {

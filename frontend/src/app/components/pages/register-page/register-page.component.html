@@ -8,6 +8,11 @@
         label="Name"
       ></text-input>
       <text-input
+        [control]="fc.email"
+        [showErrorIf]="isSubmitted"
+        label="Email"
+      ></text-input>
+      <text-input
         [control]="fc.phoneNumber"
         [showErrorIf]="isSubmitted"
         label="Phone Number"

@@ -26,6 +26,10 @@ export class RegisterPageComponent implements OnInit {
     this.registerForm = this.formBuilder.group(
       {
         name: ["", [Validators.required, Validators.minLength(4)]],
+        email: [
+          "",
+          [Validators.required, Validators.minLength(4), Validators.email],
+        ],
         password: ["", [Validators.required, Validators.minLength(4)]],
         confirmPassword: ["", [Validators.required, Validators.minLength(4)]],
         phoneNumber: [
@@ -54,6 +58,7 @@ export class RegisterPageComponent implements OnInit {
     const fv = this.registerForm.value;
     const user: IUserRegister = {
       name: fv.name,
+      email: fv.email,
       password: fv.password,
       confirmPassword: fv.confirmPassword,
       phoneNumber: fv.phoneNumber,

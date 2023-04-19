@@ -50,12 +50,14 @@ router.post(
 router.post(
   "/register",
   asyncHandler(async (req, res) => {
-    const { name, password, phoneNumber } = req.body;
+    const { name, email, password, phoneNumber } = req.body;
     const user = await UserModel.findOne({ phoneNumber });
     if (user) {
       res
         .status(BAD_REQUEST)
-        .send("User already exists,Retry with a different phone number");
+        .send(
+          "User already exists. Please retry with a different phone number"
+        );
       return;
     }
 
@@ -65,6 +67,7 @@ router.post(
       id: "",
       name,
       phoneNumber,
+      email,
       password: encryptedPassword,
       token: "",
     };
