@@ -73,19 +73,23 @@ router.post(
     };
 
     const dbUser = await UserModel.create(newUser);
+    /* `res.send(generateTokenResponse(dbUser));` is sending a response to the client with the user
+    object and a JSON Web Token (JWT) generated using the `generateTokenResponse` function. The
+    `generateTokenResponse` function takes a user object as an argument and returns an object with
+    the user's information and a JWT token. The `res.send()` method sends this object as a response
+    to the client. */
     res.send(generateTokenResponse(dbUser));
   })
 );
+
 /**
- * The function generates a token response containing user information and a JWT token.
- * @param {any} user - The `user` parameter is an object that contains information about a user, such
- * as their name, email, address, and whether or not they are an admin. This function generates a token
- * that can be used to authenticate the user and returns an object that includes the user's information
- * and the token.
- * @returns The function `generateTokenResponse` returns an object with the properties `id`, `name`,
- * `email`, `address`, `isAdmin`, and `token`. The values of `id`, `name`, `email`, `address`, and
- * `isAdmin` are taken from the `user` object passed as an argument to the function. The `token`
- * property is generated using the `jsonwebtoken` library
+ * The function generates a JSON Web Token (JWT) using the `jsonwebtoken` library and returns an object
+ * containing user information and the generated token.
+ * @param {IUser} user - The `user` parameter is an object of type `IUser` which contains information
+ * about a user, such as their `id`, `phoneNumber`, `name`, and `email`.
+ * @returns The function `generateTokenResponse` is returning an object with the user's `id`, `name`,
+ * `email`, `phoneNumber`, and a JSON Web Token (`token`) that contains the user's information as
+ * payload data.
  */
 const generateTokenResponse = (user: IUser) => {
   /* This code is generating a JSON Web Token (JWT) using the `jsonwebtoken` library. The `Jwt.sign()`
@@ -93,7 +97,12 @@ const generateTokenResponse = (user: IUser) => {
   secret key used to sign the token, and an options object that specifies the token's expiration
   time. */
   const token = Jwt.sign(
-    { id: user.id, phoneNumber: user.phoneNumber, name: user.name },
+    {
+      id: user.id,
+      phoneNumber: user.phoneNumber,
+      name: user.name,
+      email: user.email,
+    },
     process.env.JWT_SECRET!,
     {
       expiresIn: "30d",
@@ -102,6 +111,7 @@ const generateTokenResponse = (user: IUser) => {
   return {
     id: user.id,
     name: user.name,
+    email: user.email,
     phoneNumber: user.phoneNumber,
     token,
   };
