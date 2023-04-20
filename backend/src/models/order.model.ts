@@ -31,6 +31,7 @@ export interface IOrder {
   name: string;
   email: string;
   phoneNumber: string;
+  paymentId: string;
   status: OrderStatus;
   user: Types.ObjectId;
   createdAt: Date;
@@ -45,6 +46,7 @@ export const OrderSchema = new Schema<IOrder>(
     items: { type: [OrderItemSchema], required: true },
     totalPrice: { type: Number, required: true },
     status: { type: String, default: OrderStatus.NEW },
+    paymentId: { type: String, required: true },
     user: { type: Schema.Types.ObjectId, required: true },
   },
   {
