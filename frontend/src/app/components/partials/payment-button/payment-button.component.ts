@@ -34,7 +34,6 @@ export class PaymentButtonComponent implements OnInit {
             purchase_units: [
               {
                 amount: {
-                  currency_code: "CAD",
                   value: self.order.totalPrice,
                 },
               },
@@ -49,7 +48,7 @@ export class PaymentButtonComponent implements OnInit {
               this.cartService.clearCart();
               this.router.navigateByUrl("/track" + orderId);
               this.toastrService.success(
-                "Processing payment",
+                "Payment Processed",
                 "Successfully Saved"
               );
             },
