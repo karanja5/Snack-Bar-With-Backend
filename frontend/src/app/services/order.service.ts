@@ -4,6 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import {
   NEW_ORDER_FOR_CURRENT_USER_URL,
   ORDER_CREATE_URL,
+  PAY_FOR_ORDER_FOR_CURRENT_USER_URL,
 } from "../shared/constants/urls";
 import { Observable } from "rxjs";
 
@@ -18,5 +19,9 @@ export class OrderService {
 
   getNewOrderForCurrentUser(): Observable<Order> {
     return this.http.get<Order>(NEW_ORDER_FOR_CURRENT_USER_URL);
+  }
+
+  payForOrder(order: Order): Observable<string> {
+    return this.http.post<string>(PAY_FOR_ORDER_FOR_CURRENT_USER_URL, order);
   }
 }
