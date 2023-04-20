@@ -7,6 +7,10 @@
         <span class="value">{{ currentOrder.name }}</span>
       </div>
       <div>
+        <h3 class="label"><strong>Email</strong></h3>
+        <span class="value">{{ currentOrder.email }}</span>
+      </div>
+      <div>
         <h3 class="label"><strong>Phone Number</strong></h3>
         <span class="value">{{ currentOrder.phoneNumber }}</span>
       </div>
@@ -15,7 +19,7 @@
     <order-items-list [order]="currentOrder"></order-items-list>
     <div class="buttons-container">
       <div class="buttons">
-        <tingg-payment-button></tingg-payment-button>
+        <payment-button [order]="currentOrder"></payment-button>
       </div>
     </div>
   </div>
