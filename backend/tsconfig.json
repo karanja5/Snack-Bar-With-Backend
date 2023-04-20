@@ -6,7 +6,10 @@
         "outDir": "./built",
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
     },
-    "include": ["src/**/*"]
+    "include": [
+        "src/**/*"
+    ]
 }
