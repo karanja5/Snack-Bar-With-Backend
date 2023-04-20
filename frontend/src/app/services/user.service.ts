@@ -62,6 +62,10 @@ export class UserService {
   constructor(private http: HttpClient, private toastrService: ToastrService) {
     this.userObservable = this.userSubject.asObservable();
   }
+
+  public get currentUser(): User {
+    return this.userSubject.value;
+  }
   /**
    * This function logs in a user by sending a post request to a login URL and returns an observable of
    * the user, while also saving the user to local storage and displaying a success or error message
@@ -104,9 +108,6 @@ export class UserService {
     );
   }
 
-  get currentUser(): User {
-    return this.userSubject.value;
-  }
   register(userRegister: IUserRegister): Observable<User> {
     return this.http.post<User>(USER_REGISTER_URL, userRegister).pipe(
       tap({
