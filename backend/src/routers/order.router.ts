@@ -3,7 +3,6 @@ import asyncHandler from "express-async-handler";
 import { OrderModel } from "../models/order.model";
 import { OrderStatus } from "../constants/order_status_enum";
 import authMid from "../middlewares/auth.mid";
-import { NEW_ORDER_FOR_CURRENT_USER_URL } from "../../../frontend/src/app/shared/constants/urls";
 
 const router = Router();
 router.use(authMid);
