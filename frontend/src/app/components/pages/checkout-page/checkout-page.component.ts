@@ -18,9 +18,10 @@ export class CheckoutPageComponent implements OnInit {
   constructor(
     private cartService: CartService,
     private formBuilder: FormBuilder,
+    private toastrService: ToastrService,
     private userService: UserService,
     private orderService: OrderService,
-    private toastrService: ToastrService,
+
     private router: Router
   ) {
     const cart = this.cartService.getCart();
@@ -43,7 +44,7 @@ export class CheckoutPageComponent implements OnInit {
 
   createOrder() {
     if (this.checkoutForm.invalid) {
-      this.toastrService.error(
+      this.toastrService.warning(
         "Please enter your name and phone number",
         "Invalid Inputs"
       );
@@ -60,7 +61,7 @@ export class CheckoutPageComponent implements OnInit {
         this.toastrService.success("Order created", "Success");
       },
       error: (eResponse) => {
-        this.toastrService.error(eResponse.error.message, "Cart");
+        this.toastrService.error(eResponse.error.message, "Order is empty");
       },
     });
   }
