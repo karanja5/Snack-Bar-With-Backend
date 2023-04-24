@@ -99,6 +99,7 @@ const generateTokenResponse = (user: IUser) => {
   const token = Jwt.sign(
     {
       id: user.id,
+      name: user.name,
       phoneNumber: user.phoneNumber,
       email: user.email,
     },
