@@ -1,6 +1,6 @@
 import { Schema, Types, model } from "mongoose";
-import { Food } from "../../../frontend/src/app/shared/models/food";
-import { FoodSchema } from "./food.model";
+// import { Food } from "../../../frontend/src/app/shared/models/food";
+import { IFood, FoodSchema } from "./food.model";
 import { OrderStatus } from "../constants/order_status_enum";
 
 /* The `export interface IOrder` is defining the structure of an order object in TypeScript. It
@@ -8,7 +8,7 @@ specifies the properties of an order, such as its `id`, `userId`, `items`, `tota
 `createdAt`. This interface can be used to ensure that objects passed around in the code conform to
 this structure and have all the required properties. */
 export interface IOrderItem {
-  food: Food;
+  food: IFood;
   quantity: number;
   price: number;
 }
@@ -27,12 +27,15 @@ export interface IOrder {
   id: string;
   items: IOrderItem[];
   totalPrice: number;
-  totalQuantity: number;
   name: string;
   email: string;
   phoneNumber: string;
   paymentId: string;
   status: OrderStatus;
+  /* `user: Types.ObjectId;` is defining a property called `user` in the `IOrder` interface, which is
+  of type `Types.ObjectId`. This property is used to store the ID of the user who placed the order.
+  The `Types.ObjectId` type is provided by the Mongoose library and is used to represent MongoDB
+  ObjectIds. */
   user: Types.ObjectId;
   createdAt: Date;
   updatedAt: Date;
@@ -41,8 +44,8 @@ export interface IOrder {
 export const OrderSchema = new Schema<IOrder>(
   {
     name: { type: String, required: true },
-    phoneNumber: { type: String, required: true, unique: true },
-    email: { type: String, required: true, unique: true },
+    phoneNumber: { type: String, required: true },
+    email: { type: String, required: true },
     items: { type: [OrderItemSchema], required: true },
     totalPrice: { type: Number, required: true },
     status: { type: String, default: OrderStatus.NEW },
