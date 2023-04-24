@@ -46,7 +46,7 @@ export class PaymentButtonComponent implements OnInit {
           self.orderService.payForOrder(this.order).subscribe({
             next: (orderId: string) => {
               this.cartService.clearCart();
-              this.router.navigateByUrl("/track" + orderId);
+              this.router.navigateByUrl("/track/" + orderId);
               this.toastrService.success(
                 "Payment Processed",
                 "Successfully Saved"
