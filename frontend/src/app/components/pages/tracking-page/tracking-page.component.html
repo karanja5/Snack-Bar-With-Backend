@@ -1,0 +1,15 @@
+<div class="container">
+  <p *ngIf="!order">order is empty</p>
+  <div class="content" *ngIf="order">
+    <h1>
+      <strong>Order #{{ order.id }}</strong>
+    </h1>
+    <div class="details">
+      <div><strong>Date:</strong> {{ order.createdAt | date : "medium" }}</div>
+      <div><strong>Name:</strong> {{ order.createdAt | date : "medium" }}</div>
+      <div>
+        <strong>Phone Number:</strong> {{ order.createdAt | date : "medium" }}
+      </div>
+    </div>
+  </div>
+</div>
