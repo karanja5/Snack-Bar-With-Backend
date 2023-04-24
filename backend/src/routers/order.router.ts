@@ -69,6 +69,19 @@ router.post("/payForOrder", async (req: any, res: any) => {
   }
 });
 
+router.get(
+  "/track/:id",
+  asyncHandler(async (req, res) => {
+    const order = await OrderModel.findById(req.params.id);
+    // res.send(order);
+    if (order) {
+      res.send(order);
+    } else {
+      res.status(400).send("Error: Order not found");
+    }
+  })
+);
+
 export default router;
 
 async function getNewOrderForCurrentUser(req: any) {
