@@ -63,6 +63,11 @@ export class UserService {
     this.userObservable = this.userSubject.asObservable();
   }
 
+  /**
+   * This function returns the current user.
+   * @returns The `currentUser` property is returning the current value of the `userSubject` as a
+   * `User` object.
+   */
   public get currentUser(): User {
     return this.userSubject.value;
   }
