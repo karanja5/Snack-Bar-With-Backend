@@ -105,16 +105,6 @@ export class CartService {
   }
 
   /**
-   * The function clears the contents of the cart and updates the local storage accordingly.
-   * I haven't used this function yet but it will be used to clear the cart when the user clicks the
-   * checkout button.
-   */
-  clearCart(): void {
-    this.cart = new Cart();
-    this.setCartToLocalStorage();
-  }
-
-  /**
    * This function returns an observable of type Cart from a subject.
    * @returns An Observable of type Cart is being returned. The Observable is obtained by calling the
    * `asObservable()` method on the `cartSubject` Subject.
@@ -123,9 +113,22 @@ export class CartService {
     return this.cartSubject.asObservable();
   }
 
+  /**
+   * This function returns the current value of the cart subject.
+   * @returns The `getCart()` method is returning an object of type `Cart`. The object being returned
+   * is the current value of the `cartSubject` BehaviorSubject.
+   */
   getCart(): Cart {
     return this.cartSubject.value;
-   }
+  }
+
+  /**
+   * The function clears the contents of the cart and updates the local storage accordingly.
+   */
+  clearCart(): void {
+    this.cart = new Cart();
+    this.setCartToLocalStorage();
+  }
 
   /**
    * The function calculates the total price and count of items in the cart, converts the cart object
