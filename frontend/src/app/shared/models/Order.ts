@@ -8,6 +8,6 @@ export class Order {
   email!: string;
   phoneNumber!: string;
   paymentId!: string;
-  createdAt!: Date;
   status!: string;
+  createdAt!: string;
 }
