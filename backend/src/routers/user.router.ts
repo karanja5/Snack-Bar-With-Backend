@@ -100,7 +100,6 @@ const generateTokenResponse = (user: IUser) => {
     {
       id: user.id,
       phoneNumber: user.phoneNumber,
-      name: user.name,
       email: user.email,
     },
     process.env.JWT_SECRET!,
@@ -113,7 +112,7 @@ const generateTokenResponse = (user: IUser) => {
     name: user.name,
     email: user.email,
     phoneNumber: user.phoneNumber,
-    token,
+    token: token,
   };
 };
 // The token is stored in the browser's local storage. The token is sent to the server in the
