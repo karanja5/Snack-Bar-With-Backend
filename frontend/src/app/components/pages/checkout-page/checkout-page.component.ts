@@ -16,15 +16,14 @@ export class CheckoutPageComponent implements OnInit {
   checkoutForm!: FormGroup;
 
   constructor(
-    private cartService: CartService,
+    cartService: CartService,
     private formBuilder: FormBuilder,
     private toastrService: ToastrService,
     private userService: UserService,
     private orderService: OrderService,
-
     private router: Router
   ) {
-    const cart = this.cartService.getCart();
+    const cart = cartService.getCart();
     this.order.items = cart.items;
     this.order.totalPrice = cart.totalPrice;
   }
@@ -45,7 +44,7 @@ export class CheckoutPageComponent implements OnInit {
   createOrder() {
     if (this.checkoutForm.invalid) {
       this.toastrService.warning(
-        "Please enter your name and phone number",
+        "Please enter your name, email and phone number",
         "Invalid Inputs"
       );
       return;
