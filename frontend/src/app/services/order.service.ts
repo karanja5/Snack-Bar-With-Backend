@@ -5,6 +5,7 @@ import {
   NEW_ORDER_FOR_CURRENT_USER_URL,
   ORDER_CREATE_URL,
   PAY_FOR_ORDER_FOR_CURRENT_USER_URL,
+  TRACKING_ORDER_FOR_CURRENT_USER_URL,
 } from "../shared/constants/urls";
 import { Observable } from "rxjs";
 
@@ -23,5 +24,9 @@ export class OrderService {
 
   payForOrder(order: Order): Observable<string> {
     return this.http.post<string>(PAY_FOR_ORDER_FOR_CURRENT_USER_URL, order);
+  }
+
+  trackOrderById(id: number): Observable<Order> {
+    return this.http.get<Order>(TRACKING_ORDER_FOR_CURRENT_USER_URL + id);
   }
 }
