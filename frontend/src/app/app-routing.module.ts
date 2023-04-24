@@ -10,6 +10,7 @@ import { CheckoutPageComponent } from "./components/pages/checkout-page/checkout
 import { RegisterPageComponent } from "./components/pages/register-page/register-page.component";
 import { CheckoutAuthenticationGuard } from "./auth/guards/checkout-authentication.guard";
 import { PaymentPageComponent } from "./components/pages/payment-page/payment-page.component";
+import { TrackingPageComponent } from "./components/pages/tracking-page/tracking-page.component";
 
 const routes: Routes = [
   { path: "", component: HomepageComponent },
@@ -29,6 +30,11 @@ const routes: Routes = [
     canActivate: [CheckoutAuthenticationGuard],
   },
   { path: "register", component: RegisterPageComponent },
+  {
+    path: "track/:orderId",
+    component: TrackingPageComponent,
+    canActivate: [CheckoutAuthenticationGuard],
+  },
 ];
 
 @NgModule({
