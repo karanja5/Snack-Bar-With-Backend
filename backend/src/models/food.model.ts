@@ -50,5 +50,10 @@ database ("Food"), and the schema for the model (`FoodSchema`). The model is the
 `FoodModel` for use in other parts of the application. */
 export const FoodModel = model<IFood>(
   /*name of model in db*/ "Food",
+  /* `FoodSchema` is defining a Mongoose schema for a food item in a restaurant menu. The schema
+  specifies the properties of a food item, such as its name, description, price, tags, image URL,
+  and other attributes. It also includes options for the schema, such as enabling virtuals and
+  timestamps. The schema is exported for use in creating a Mongoose model for the "Food" collection
+  in the database. */
   FoodSchema
 );
