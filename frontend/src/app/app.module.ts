@@ -31,7 +31,6 @@ import { OrderItemsListComponent } from "./components/partials/order-items-list/
 import { RegisterPageComponent } from "./components/pages/register-page/register-page.component";
 import { PaymentPageComponent } from "./components/pages/payment-page/payment-page.component";
 import { PaymentButtonComponent } from "./components/partials/payment-button/payment-button.component";
-import { CheckoutPage2Component } from "./components/pages/checkout-page2/checkout-page2.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +54,6 @@ import { CheckoutPage2Component } from "./components/pages/checkout-page2/checko
     RegisterPageComponent,
     PaymentPageComponent,
     PaymentButtonComponent,
-    CheckoutPage2Component,
   ],
   imports: [
     BrowserModule,
