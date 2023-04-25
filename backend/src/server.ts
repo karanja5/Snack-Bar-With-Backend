@@ -54,7 +54,8 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT;
+// || 5000;
 /* `app.listen(port, () => {...})` is starting the express application and listening for incoming
 requests on the specified port. When the server starts listening, it logs a message to the console
 indicating that the web server is running and the URL where it can be accessed. */
