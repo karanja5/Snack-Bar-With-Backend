@@ -9,8 +9,8 @@
         <li *ngIf="isLoggedIn" class="menu-container">
           <a routerLink="/dashboard">{{ user.name }}</a>
           <div class="menu">
-            <a routerLink="/profile" class="profile">Profile</a>
-            <a routerLink="/orders" class="orders">Orders</a>
+            <!-- <a routerLink="/profile" class="profile">Profile</a>
+            <a routerLink="/orders" class="orders">Orders</a> -->
             <a class="logout" (click)="logout()">Logout</a>
           </div>
         </li>
