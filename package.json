@@ -1,11 +1,12 @@
 {
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "express-async-handler": "^1.2.0",
-    "mongoose": "^7.0.3",
-    "ngx-toastr": "^16.1.0"
+  "name": "Snack-Bar-Near-Me",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=18 <19"
+  },
+  "scripts": {
+    "start": "cd backend/built && node server.js",
+    "prebuild": "cd backend && npm run build",
+    "build": "cd frontend && npm run build"
   }
 }
