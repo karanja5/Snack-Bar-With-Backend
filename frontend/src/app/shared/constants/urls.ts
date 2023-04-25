@@ -4,7 +4,9 @@ appending specific endpoints to the `BASE_URL`. These URLs are exported as const
 can be easily imported and used in other parts of the frontend code. By using constants instead of
 hardcoding URLs, the code becomes more maintainable and flexible, as the URLs can be easily changed
 if the backend is deployed to a different location. */
-const BASE_URL = "http://localhost:5000";
+import { environment } from "src/environments/environment";
+
+const BASE_URL = environment.production ? "" : "http://localhost:5000";
 
 export const FOODS_URL = BASE_URL + "/api/foods";
 export const TAGS_URL = FOODS_URL + "/tags";
