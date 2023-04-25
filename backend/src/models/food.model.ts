@@ -5,7 +5,7 @@ specifies the properties of a food item, such as its `id`, `name`, `description`
 `imgUrl`, `favorite`, `stars`, and `waitTime`. This interface can be used to ensure that objects
 passed around in the code conform to this structure and have all the required properties. */
 export interface IFood {
-  id: number;
+  id: string;
   name: string;
   description: string;
   price: number;
