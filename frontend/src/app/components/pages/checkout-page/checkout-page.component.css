@@ -1,6 +1,6 @@
 .container {
   width: 90vw;
-  height: 90vh;
+  height: 100%;
   margin: 1rem 2rem 6rem 2rem;
   justify-content: center;
   align-items: center;
@@ -31,6 +31,30 @@ form {
 .buttons {
   margin-top: 2rem;
   max-width: 35rem;
+}
+
+.buttons .add {
+  padding: 1rem;
+  color: whitesmoke;
+  background-color: royalblue;
+  display: block;
+  width: 50vw;
+  max-width: 25rem;
+  height: 3.3rem;
+  border-radius: 0.5rem;
+  opacity: 1;
+  font-size: 1.3rem;
+  text-align: center;
+  opacity: 1;
+  justify-self: center;
+  margin-left: 5rem;
+  margin-bottom: 0.5rem;
+}
+.buttons .add:hover {
+  opacity: 0.85;
+  transition: 0.5s ease-in-out;
+  box-shadow: 2px 2px 2px 2px #ccc;
+  cursor: pointer;
 }
 
 button {

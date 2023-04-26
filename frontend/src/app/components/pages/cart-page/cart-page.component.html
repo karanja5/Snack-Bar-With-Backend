@@ -42,17 +42,12 @@ If the cart is empty, it displays a message saying so. The code uses Angular dir
       </div>
     </li>
   </ul>
-
-  <div class="add">
-    <a routerLink="/">Add</a>
-  </div>
-
   <div class="checkout">
     <div>
       <div class="count">{{ cart.totalCount }}</div>
       <div class="total">{{ cart.totalPrice }}</div>
     </div>
-
-    <a routerLink="/checkout">Proceed to Checkout</a>
+    <a class="add" routerLink="/">Add Items to Cart </a>
+    <a class="goToCheckout" routerLink="/checkout">Proceed to Checkout</a>
   </div>
 </div>
