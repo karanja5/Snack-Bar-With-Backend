@@ -105,7 +105,10 @@ const generateTokenResponse = (user: IUser) => {
     },
     process.env.JWT_SECRET!,
     {
-      expiresIn: "30d",
+      /* `expiresIn: "5h",` is setting the expiration time for the JSON Web Token (JWT) to 5 hours.
+      This means that the token will be valid for 5 hours from the time it is generated, after which
+      the user will need to log in again to get a new token. */
+      expiresIn: "5h",
     }
   );
   return {

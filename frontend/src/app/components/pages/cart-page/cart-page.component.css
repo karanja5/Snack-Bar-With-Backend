@@ -105,7 +105,7 @@
 }
 
 .parent .checkout .count::before {
-  content: "Total Items: ";
+  content: "Items: ";
   color: royalblue;
   font-weight: 500;
 }
@@ -115,20 +115,19 @@
   font-weight: 500;
 }
 
-.parent .checkout a{
+.parent .checkout a {
   padding: 1rem;
   color: aliceblue;
   background-color: royalblue;
   display: block;
-  width : 99%;
+  width: 99%;
   border-radius: 1rem;
   text-align: center;
   opacity: 1;
   justify-self: center;
 }
 
-.parent .checkout a:hover{
+.parent .checkout a:hover {
   opacity: 0.8;
   cursor: pointer;
 }
-
