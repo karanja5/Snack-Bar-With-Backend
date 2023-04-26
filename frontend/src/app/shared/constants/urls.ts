@@ -6,7 +6,8 @@ hardcoding URLs, the code becomes more maintainable and flexible, as the URLs ca
 if the backend is deployed to a different location. */
 import { environment } from "src/environments/environment";
 
-const BASE_URL = environment.production ? "" : "http://localhost:5000";
+const BASE_URL = environment.BASE_URL;
+// const BASE_URL = environment.production ? "" : "http://localhost:5000";
 
 export const FOODS_URL = BASE_URL + "/api/foods";
 export const TAGS_URL = FOODS_URL + "/tags";
