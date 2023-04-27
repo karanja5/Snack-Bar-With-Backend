@@ -54,19 +54,25 @@ button:hover {
 }
 
 .arrow {
+  padding: 0.3rem;
   position: fixed;
-  font-size: 2rem;
+  font-size: 1.5rem;
   bottom: 0;
   right: 0;
   color: blue;
   animation: bounce 2s infinite;
   animation-delay: 1s;
   cursor: pointer;
+  background-color: #e4e4e4;
+  border-radius: 100rem;
+}
+.arrow:hover {
+  animation: none;
 }
 
 .arrow:hover::before {
-  content: "Pay";
-  font-size: 1rem;
+  content: "PAY";
+  font-size: 0.8rem;
 }
 
 @keyframes bounce {
@@ -85,7 +91,7 @@ button:hover {
   }
 }
 
-@media (min-width: 700px) {
+@media (min-width: 950px) {
   .arrow {
     display: none;
   }

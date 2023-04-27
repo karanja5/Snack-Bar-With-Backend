@@ -60,4 +60,12 @@ export class CartPageComponent implements OnInit {
     const quantity = parseInt(quantityInString);
     this.cartService.changeQuantity(cartItem.food.id, quantity);
   }
+  scrollToCheckout() {
+    const checkoutButton = document.querySelector("#checkout-button");
+    if (checkoutButton) {
+      const top =
+        checkoutButton.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+  }
 }

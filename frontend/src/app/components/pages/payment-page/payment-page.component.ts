@@ -28,4 +28,11 @@ export class PaymentPageComponent implements OnInit {
     });
   }
   ngOnInit(): void {}
+  scrollToAddToPayButton() {
+    const paypalButton = document.querySelector("#paypal-button");
+    if (paypalButton) {
+      const top = paypalButton.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+  }
 }

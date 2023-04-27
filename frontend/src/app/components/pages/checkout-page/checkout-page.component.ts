@@ -64,4 +64,12 @@ export class CheckoutPageComponent implements OnInit {
       },
     });
   }
+  scrollToAddToOrderNow() {
+    const checkoutButton = document.querySelector("#order-button");
+    if (checkoutButton) {
+      const top =
+        checkoutButton.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+  }
 }

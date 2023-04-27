@@ -1,7 +1,7 @@
 <div class="container">
   <div class="content">
     <app-title title="Orders" fontSize="1.5rem"></app-title>
-    <p class="arrow">&darr;</p>
+    <p class="arrow" (click)="scrollToAddToOrderNow()">&darr;</p>
     <form [formGroup]="checkoutForm">
       <text-input [control]="fc.name" label="Name"></text-input>
       <text-input [control]="fc.email" label="Email"></text-input>
@@ -11,7 +11,7 @@
     <div class="buttons-container">
       <div class="buttons">
         <a class="add" routerLink="/">Add Items to Cart </a>
-        <button (click)="createOrder()">Order Now</button>
+        <button (click)="createOrder()" id="order-button">Order Now</button>
       </div>
     </div>
   </div>

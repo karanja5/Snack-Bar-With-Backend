@@ -1,7 +1,7 @@
 <div class="container">
   <div class="content">
     <app-title title="Confirmation Page" fontSize="1.5rem"></app-title>
-    <p class="arrow">&darr;</p>
+    <p class="arrow" (click)="scrollToAddToPayButton()">&darr;</p>
     <div class="summary">
       <div>
         <h3 class="label"><strong>Name</strong></h3>
@@ -20,7 +20,10 @@
     <order-items-list [order]="currentOrder"></order-items-list>
     <div class="buttons-container">
       <div class="buttons">
-        <payment-button [order]="currentOrder"></payment-button>
+        <payment-button
+          [order]="currentOrder"
+          id="paypal-button"
+        ></payment-button>
       </div>
     </div>
   </div>

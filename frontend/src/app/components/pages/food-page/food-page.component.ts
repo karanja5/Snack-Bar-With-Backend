@@ -76,4 +76,11 @@ export class FoodPageComponent implements OnInit {
     this.cartService.addToCart(this.food);
     this.router.navigateByUrl("/cart-page");
   }
+  scrollToAddToCart() {
+    const cartButton = document.querySelector("#cart-button");
+    if (cartButton) {
+      const top = cartButton.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+  }
 }
