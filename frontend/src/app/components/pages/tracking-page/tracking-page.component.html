@@ -1,17 +1,27 @@
 <div class="container">
-  <p *ngIf="!order">order is empty</p>
   <div class="content" *ngIf="order">
     <app-title title="Receipt"></app-title>
-    <h1>
-      <strong>Order #{{ order.id }}</strong>
-    </h1>
+    <div class="orderNo">
+      <h1>
+        <strong>Order #{{ order.id }}</strong>
+      </h1>
+    </div>
     <div class="details">
-      <div><strong>Date: </strong> {{ order.createdAt | date : "medium" }}</div>
-      <div><strong>Name: </strong> {{ order.name }}</div>
-      <div><strong>Phone Number: </strong> {{ order.phoneNumber }}</div>
-      <div><strong>Status: </strong> {{ order.status }}</div>
+      <div>
+        <strong>Date: </strong>
+        <span>{{ order.createdAt | date : "medium" }}</span>
+      </div>
+      <div>
+        <strong>Name: </strong><span>{{ order.name }}</span>
+      </div>
+      <div>
+        <strong>Phone Number: </strong><span>{{ order.phoneNumber }}</span>
+      </div>
+      <div>
+        <strong>Status: </strong> <span>{{ order.status }}</span>
+      </div>
       <div *ngIf="order.paymentId">
-        <strong>Payment Id: </strong> {{ order.paymentId }}
+        <strong>Payment Id: </strong> <span> {{ order.paymentId }}</span>
       </div>
     </div>
     <order-items-list [order]="order"></order-items-list>

@@ -25,3 +25,19 @@
   display: inline-block;
   width: 20%;
 }
+
+@media (max-width: 760px) {
+  .container .content .orderNo {
+    width: 95%;
+  }
+  .container .content .orderNo h1 strong {
+    word-wrap: break-word;
+  }
+
+  .container .content .details div {
+    width: 75%;
+  }
+  .container .content .details div span {
+    display: block;
+  }
+}
