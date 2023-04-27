@@ -9,7 +9,6 @@ If the cart is empty, it displays a message saying so. The code uses Angular dir
   notFoundMessage="The Cart is Empty"
 ></app-not-found>
 <p class="arrow" (click)="scrollToCheckout()">&darr;</p>
->
 <div class="parent" *ngIf="cart && cart.items.length > 0">
   <ul>
     <li *ngFor="let item of cart.items">

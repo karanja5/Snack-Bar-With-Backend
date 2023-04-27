@@ -61,7 +61,7 @@
   border: none;
   border-bottom: 1px solid royalblue;
   font-size: 1.05rem;
-  font-weight: 100;
+  font-weight: 300;
 }
 .parent ul li .item-price::before {
   content: "Ksh: ";
