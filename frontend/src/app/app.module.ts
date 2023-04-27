@@ -31,7 +31,7 @@ import { OrderItemsListComponent } from "./components/partials/order-items-list/
 import { RegisterPageComponent } from "./components/pages/register-page/register-page.component";
 import { PaymentPageComponent } from "./components/pages/payment-page/payment-page.component";
 import { PaymentButtonComponent } from "./components/partials/payment-button/payment-button.component";
-import { TrackingPageComponent } from './components/pages/tracking-page/tracking-page.component';
+import { TrackingPageComponent } from "./components/pages/tracking-page/tracking-page.component";
 @NgModule({
   declarations: [
     AppComponent,
