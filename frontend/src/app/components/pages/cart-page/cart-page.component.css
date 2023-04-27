@@ -189,4 +189,7 @@
   .arrow {
     display: none;
   }
+  .parent ul li select {
+    font-size: 500;
+  }
 }
