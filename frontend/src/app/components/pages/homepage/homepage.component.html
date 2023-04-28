@@ -12,8 +12,8 @@
         <div class="name">
           {{ food.name }}
         </div>
-        <span class="favorite {{ food.favorite ? '' : 'not-favorite' }}">
-          ❤
+        <span class="favorite {{ food.favorite ? '' : 'not-favorite' }}"
+          >&#x2764;
         </span>
         <div class="stars">
           <star-rating
@@ -22,7 +22,7 @@
             checkedcolor="royalblue"
             uncheckedcolor="grey"
             size="22px"
-            [readonly]="true"
+            [readonly]="false"
           >
           </star-rating>
         </div>
