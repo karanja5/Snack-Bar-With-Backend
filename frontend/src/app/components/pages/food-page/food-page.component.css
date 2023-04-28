@@ -56,6 +56,10 @@
   flex-wrap: wrap;
 }
 
+/* #fav:hover {
+  cursor: pointer;
+} */
+
 .container .details .description span {
   padding: 0.5rem;
   font-size: 1.2rem;
@@ -126,11 +130,11 @@
   font-size: 1.5rem;
   bottom: 0;
   right: 0;
-  color: blue;
+  color: whitesmoke;
   animation: bounce 2s infinite;
   animation-delay: 1s;
   cursor: pointer;
-  background-color: #e4e4e4;
+  background-color: rgb(90, 125, 233);
   border-radius: 100rem;
 }
 .arrow:hover {

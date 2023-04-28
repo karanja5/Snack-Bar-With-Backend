@@ -8,7 +8,6 @@ loop through the tags of the food item and display them as links. -->
   notFoundMessage="Product Not Found"
 ></app-not-found>
 <app-title title="Food Page" margin="1.5rem 0 0 2.5rem"></app-title>
-<!-- <p class="arrow">Cart Button &#x2193;</p> -->
 <p class="arrow" (click)="scrollToAddToCart()">&darr;</p>
 <div *ngIf="food" class="container">
   <img [src]="food.imgUrl" [alt]="food.name" />
@@ -18,9 +17,15 @@ loop through the tags of the food item and display them as links. -->
       <span class="name">
         {{ food.name }}
       </span>
-      <span class="favorite {{ food.favorite ? '' : 'not-favorite' }}">❤</span>
+      <span class="favorite {{ food.favorite ? '' : 'not-favorite' }}"
+        >&#x2764;</span
+      >
+      <!-- <span
+        class="favorite {{ localFavorite ? '' : 'not-favorite' }}"
+        *ngIf="hidden"
+        >&#x2764;</span
+      > -->
     </div>
-
     <div class="rating">
       <star-rating
         [value]="food.stars"
@@ -28,7 +33,7 @@ loop through the tags of the food item and display them as links. -->
         checkedcolor="royalblue"
         uncheckedcolor="grey"
         size="25px"
-        [readonly]="true"
+        [readonly]="false"
       >
       </star-rating>
     </div>

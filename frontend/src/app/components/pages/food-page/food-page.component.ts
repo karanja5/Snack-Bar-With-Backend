@@ -1,6 +1,6 @@
 /* The FoodPageComponent class is responsible for displaying a single food item and allowing the user
 to add it to their cart. */
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 /* `import { ActivatedRoute, Router } from "@angular/router";` is importing the `ActivatedRoute` and
 `Router` classes from the `@angular/router` module. These classes are used in Angular to handle
 routing and navigation within the application. `ActivatedRoute` provides access to information about
@@ -11,6 +11,8 @@ import { CartService } from "src/app/services/cart.service";
 import { FoodService } from "src/app/services/food.service";
 import { Food } from "src/app/shared/models/food";
 
+// const FAV_KEY = "Favorite";
+
 @Component({
   selector: "app-food-page",
   templateUrl: "./food-page.component.html",
@@ -19,6 +21,11 @@ import { Food } from "src/app/shared/models/food";
 /* The FoodPageComponent class retrieves a specific food item from a food service and allows the user
 to add it to their cart. */
 export class FoodPageComponent implements OnInit {
+  // @Input() visible: boolean = true;
+
+  // @Input() hidden: boolean = false;
+
+  // localFavorite: boolean = false;
   /* `food!: Food;` is declaring a property named `food` of type `Food`. The exclamation mark (`!`) is
   a non-null assertion operator, which tells TypeScript that the `food` property will be initialized
   at some point before it is used, even though it is not initialized in the constructor or in the
@@ -83,4 +90,26 @@ export class FoodPageComponent implements OnInit {
       window.scrollTo({ top, behavior: "smooth" });
     }
   }
+  // toggleFavorite() {
+  //   this.food.favorite = !this.food.favorite;
+  //   this.visible = !this.visible;
+  //   this.hidden = !this.hidden;
+  //   this.localFavorite = this.food.favorite;
+  //   this.saveFavToLocalStorage(this.food.favorite);
+  // }
+  // toggleFavorite2() {
+  //   this.localFavorite = !this.localFavorite
+  //   this.saveFavToLocalStorage(this.localFavorite );
+  // }
+
+  // private saveFavToLocalStorage = (bool: boolean) => {
+  //   localStorage.setItem(FAV_KEY, JSON.stringify(bool));
+  // };
+
+  // private getFavFromLocalStorage = () => {
+  //   const fav = localStorage.getItem(FAV_KEY);
+  //   if (fav) {
+  //     this.localFavorite = JSON.parse(fav);
+  //   }
+  // };
 }
