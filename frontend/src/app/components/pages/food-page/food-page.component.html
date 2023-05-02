@@ -17,7 +17,9 @@ loop through the tags of the food item and display them as links. -->
       <span class="name">
         {{ food.name }}
       </span>
-      <span class="favorite {{ food.favorite ? '' : 'not-favorite' }}"
+      <span
+        class="favorite {{ food.favorite ? '' : 'not-favorite' }}"
+        (click)="toggleFavorite()"
         >&#x2764;</span
       >
       <!-- <span
@@ -33,7 +35,7 @@ loop through the tags of the food item and display them as links. -->
         checkedcolor="royalblue"
         uncheckedcolor="grey"
         size="25px"
-        [readonly]="false"
+        [readonly]="true"
       >
       </star-rating>
     </div>
