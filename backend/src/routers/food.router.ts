@@ -7,9 +7,9 @@ corresponding functions. In this code, `Router` is used to define routes for a f
 web application, such as getting a list of foods, searching for foods by name, getting a
 list of tags, and getting a list of foods with a specific tag. */
 import { Router } from "express";
-// import { sampleFoods } from "../data/sample-foods"; //I don't need this anymore because I have seeded the database
 import asyncHandler from "express-async-handler";
-import { FoodModel } from "../models/food.model";
+import { FoodModel, IFood } from "../models/food.model";
+// import { sampleFoods } from "../data";
 
 const router = Router();
 
@@ -30,7 +30,7 @@ const router = Router();
 router.get(
   "/",
   asyncHandler(async (req, res) => {
-    const foods = await FoodModel.find();
+    const foods: Array<IFood> = await FoodModel.find();
     res.send(foods);
   })
 );
@@ -44,7 +44,7 @@ router.get(
   "/search/:searchTerm",
   asyncHandler(async (req, res) => {
     const searchRegex = new RegExp(req.params.searchTerm, "i");
-    const foods = await FoodModel.find({
+    const foods: Array<IFood> = await FoodModel.find({
       name: { $regex: searchRegex },
     });
     res.send(foods);
@@ -94,7 +94,7 @@ that have the specified tag, and sends the list of matching foods as a response 
 router.get(
   "/tag/:tagName",
   asyncHandler(async (req, res) => {
-    const foods = await FoodModel.find({
+    const foods: Array<IFood> = await FoodModel.find({
       tags: req.params.tagName,
     });
     res.send(foods);
