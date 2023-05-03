@@ -11,7 +11,7 @@ export interface IFood {
   price: number;
   tags: string[];
   imgUrl: string;
-  favorite: boolean;
+  // favorite: boolean;
   stars: number;
   waitTime: string;
 }
@@ -28,7 +28,7 @@ export const FoodSchema = new Schema<IFood>(
     price: { type: Number, required: true },
     tags: { type: [String] },
     imgUrl: { type: String, required: true },
-    favorite: { type: Boolean, default: false },
+    // favorite: { type: Boolean, default: false, required: false },
     stars: { type: Number, required: true },
     waitTime: { type: String, required: true },
   },
