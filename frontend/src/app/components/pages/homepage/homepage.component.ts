@@ -28,6 +28,7 @@ export class HomepageComponent implements OnInit {
   array will be populated with `Food` objects retrieved from the `FoodService` based on the search
   term or tag parameters. */
   foodsObjArr: Food[] = [];
+  hidden!: boolean;
   /**
    * This function sets up an observable to retrieve food data based on search term or tag parameters
    * from the activated route.

@@ -12,7 +12,9 @@
         <div class="name">
           {{ food.name }}
         </div>
-        <span class="favorite {{ food.favorite ? '' : 'not-favorite' }}"
+        <span
+          class="favorite {{ food.favorite ? '' : 'not-favorite' }}"
+          [hidden]="true"
           >&#x2764;
         </span>
         <div class="stars">
