@@ -18,15 +18,11 @@ loop through the tags of the food item and display them as links. -->
         {{ food.name }}
       </span>
       <span
+        id="fav"
         class="favorite {{ food.favorite ? '' : 'not-favorite' }}"
         (click)="toggleFavorite()"
         >&#x2764;</span
       >
-      <!-- <span
-        class="favorite {{ localFavorite ? '' : 'not-favorite' }}"
-        *ngIf="hidden"
-        >&#x2764;</span
-      > -->
     </div>
     <div class="rating">
       <star-rating
