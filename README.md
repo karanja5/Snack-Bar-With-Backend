@@ -13,24 +13,46 @@ I have used the following technologies:
 - CSS
 - TypeScript
 - Angular
+- Express
 
 ## Installation
 
-To run this project, install it locally using npm:
+To run this project, clone it locally using git:
 
 ```bash
-$ cd ../sasini-snack-bar-with-backend
-$ npm install
-
-#Then change directory to the backend folder and install the dependencies for the backend
-$ npm start
-
-#Open a new terminal and change directory to the frontend folder and install the dependencies for the frontend
-$ npm start
-
-#Now you can open the website in your browser at http://localhost:4200/
-
+git clone https://github.com/karanja5/Snack-Bar-With-Backend.git
+cd ../snack-bar-with-backend
 ```
+
+Then change directory to the backend folder and install the dependencies for the backend
+
+```bash
+npm install
+```
+
+Then start the backend server
+
+```bash
+npm start
+```
+
+Open a new terminal and change directory to the frontend folder and install the dependencies for the frontend
+
+```bash
+npm install
+```
+
+Then start the frontend server
+
+```bash
+ng serve -o
+```
+
+## Usage
+
+The website is hosted on render and can be accessed using the following link:
+
+[Snack Shack](https://snack-shack.onrender.com/)
 
 ## Features
 
