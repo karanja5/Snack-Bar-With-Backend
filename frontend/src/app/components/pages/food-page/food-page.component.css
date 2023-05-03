@@ -44,10 +44,14 @@
 .container .details .header .favorite {
   font-size: 2rem;
   color: royalblue;
+  transition: font-size 0.5s ease-out, line-height 0.5s ease-out,
+    width 0.5s ease-out;
 }
 
 .container .details .header .favorite.not-favorite {
   color: grey;
+  transition: font-size 0.5s ease-out, line-height 0.5s ease-out,
+    width 0.5s ease-out;
 }
 
 .container .details .description {
@@ -56,9 +60,12 @@
   flex-wrap: wrap;
 }
 
-/* #fav:hover {
+#fav:hover {
   cursor: pointer;
-} */
+  font-size: 2.9rem;
+  transition: font-size 0.25s ease-in, line-height 0.25s ease-in,
+    width 0.25s ease-in;
+}
 
 .container .details .description span {
   padding: 0.5rem;
