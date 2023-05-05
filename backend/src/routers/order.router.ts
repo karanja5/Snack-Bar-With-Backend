@@ -49,25 +49,31 @@ router.post(
     res.send(newOrder);
   })
 );
-router.get("/newOrder", async (req: any, res: any) => {
-  const order = await getNewOrderForCurrentUser(req);
-  if (order) res.send(order);
-  else res.status(400).send();
-});
+router.get(
+  "/newOrder",
+  asyncHandler(async (req: any, res: any) => {
+    const order = await getNewOrderForCurrentUser(req);
+    if (order) res.send(order);
+    else res.status(400).send();
+  })
+);
 
-router.post("/payForOrder", async (req: any, res: any) => {
-  const { paymentId } = req.body;
-  const order = await getNewOrderForCurrentUser(req);
-  if (!order) {
-    res.status(400).send("No order found");
-    return;
-  } else {
-    order.paymentId = paymentId;
-    order.status = OrderStatus.PAID;
-    await order.save();
-    res.send(order._id);
-  }
-});
+router.post(
+  "/payForOrder",
+  asyncHandler(async (req: any, res: any) => {
+    const { paymentId } = req.body;
+    const order = await getNewOrderForCurrentUser(req);
+    if (!order) {
+      res.status(400).send("No order found");
+      return;
+    } else {
+      order.paymentId = paymentId;
+      order.status = OrderStatus.PAID;
+      await order.save();
+      res.send(order._id);
+    }
+  })
+);
 
 router.get(
   "/track/:id",
