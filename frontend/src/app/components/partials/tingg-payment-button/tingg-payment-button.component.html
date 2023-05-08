@@ -1,156 +1,40 @@
-<!-- <script src="https://developer.tingg.africa/checkout/v2/tingg-checkout.js"></script>
-
-<button class="awesome-checkout-button">Pay</button> //any name
-
-<script type="text/javascript">
-  //  `const payload` is defining an object that contains un-encrypted parameters collected against a
-  //   request in JSON format. These parameters will be used later in the code to be encrypted and sent to
-  //   the Tingg API for payment processing. -->
-<!-- const payload = {
-    //   "merchantTransactionID" : "testing123",
-    //   "requestAmount" : 200,
-    //   "currencyCode" : "KES",
-    //   "accountNumber" : "ACC123",
-    //   "serviceCode" : "TESTDEV123",
-    //   "dueDate" : "2023-11-16 0:0:0",
-    //   "requestDescription" : "Getting service/good x",
-    //   "countryCode" : "KE",
-    //   "languageCode": "en",
-    //   "customerFirstName" :"John",
-    //   "customerLastName" : "Smith",
-    //   "MSISDN" : "254712345678",
-    //   "customerEmail" : "johndoe@gmail.com",
-    //   "paymentWebhookUrl" : "<YOUR_CALLBACK_URL>",
-    //   "successRedirectUrl" : "<YOUR_SUCCESS_REDIRECT_URL>",
-    //   "failRedirectUrl" : "<YOUR_FAIL_REDIRECT_URL>"
-    // un-encrypted parameters collected against a request in json format
-  };
-  const checkoutType = "redirect"; // or 'modal'
-
-  // Render the checkout button
-  Tingg.renderPayButton({
-    text: "Proceed to Checkout",
-    color: "purple",
-    className: "awesome-checkout-button",
-  });
-
-  document
-    .querySelector(".awesome-checkout-button")
-    .addEventListener("click", function () {
-      //Call the encryption URL to encrypt the params and render checkout
-      function encrypt() {
-        return fetch("<YOUR_ENCRYPTION_ENDPOINT>", {
-          method: "POST",
-          body: JSON.stringify(payload),
-          mode: "cors",
-        }).then((response) => response.json());
-      }
-      encrypt()
-        .then((response) => {
-          // Render the checkout page on click event
-          Tingg.renderCheckout({
-            checkoutType,
-            merchantProperties: response, //{params: '', accessKey: '', countryCode: ''}
-          });
-        })
-        .catch((error) => console.log(error));
-    }); -->
-<!-- </script> -->
-
-<!DOCTYPE html><html><head><meta charset="utf-8" />
-    <title>Mula checkout library</title>
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
   </head>
-  <style>
-    body {
-      text-align: center;
-    }
-  </style>
+
   <body>
-    <input type="hidden" id="date" value="2023-05-03 04:06:22" />
-
     <button class="awesome-checkout-button"></button>
-    <br /><br />
-    <p style="font-family: monospace">
-      <strong>Note:</strong> This is the default checkout button as it would
-      appear on your web application, when embeded.<br />
-      The checkout requests created through this button as meant for
-      <strong>test purposes only!</strong>.
-    </p>
-    <script
-      src="https://developer.tingg.africa/checkout/v2/tingg-checkout.js"
-      type="79d2fc9770430ad249f3dde5-text/javascript"
-    ></script>
-    <script type="79d2fc9770430ad249f3dde5-text/javascript">
 
-       const d1 = new Date (),d2 = new Date ( d1 );
+    <script src="https://developer.tingg.africa/checkout/v2/tingg-checkout.js"></script>
 
-       d2.setMinutes ( d1.getMinutes() + 30 );
+    <script type="text/javascript">
+      // Render the checkout button
+      Tingg.renderPayButton({
+        text: "Proceed to Checkout",
+        color: "purple",
+        className: "awesome-checkout-button",
+      });
 
-      // alert(d2.getFullYear()+"-"+d2.getMonth()+"-"+d2.getDate()+" "+d2.getHours+":"+d2.getMinutes()+":00");
-
-       const domEl =  document.getElementById("date").value;
-       const no = Math.floor((Math.random() * 50000000) + 10000000);
-       const noAcc = Math.floor((Math.random() * 5000) + 10000);
-       const encryptionURL = 'https://developer.tingg.africa/testers/demo_service/EncryptSandboxNew.php'
-       const merchantProperties = {
-         merchantTransactionID: no,
-         amount: "10",
-         currencyCode: "USD",
-         accountNumber: noAcc,
-         serviceCode: "ZYDDEV5739",
-         MSISDN: "254123456789",
-         serviceDescription: "Payment for airline ticket.",
-         accessKey:"$2a$08$0JL5783ws2Q1Ik/nu95R8.Cr8oXTEG1gJp/NOEWFer9NGU63oBIkC",
-         countryCode: "KE",
-         noOfSessionCount:"",
-         //clientCategory:"MOMO",
-         minimumSessionAmount:"100",
-       //  dueDate: "2022-01-20 00:00:00",
-       //  isOffline: true,
-         languageCode: "en",
-         successRedirectUrl: "https://developer.tingg.africa/testers/demo_service/TestSandboxDemoServiceNew.php",
-         failRedirectUrl: "https://developer.tingg.africa/testers/demo_service/TestSandboxDemoServiceGH.php",
-         pendingRedirectUrl: "https://developer.tingg.africa/testers/demo_service/TestSandboxDemoServiceGH.php",
-         paymentWebhookUrl: "https://developer.tingg.africa/testers/default/webhook.php"
-       };
-
-       // Provide the class name of where you would like to append the 'pay with mula' button. This example uses a div
-       Tingg.renderPayButton({
-           //color: 'blue',
-           //text: 'Pay for Ads',
-           className: 'awesome-checkout-button',
-           checkoutType: 'redirect'
-       });
-
-       // MulaCheckout.addPayWithMulaButton({ className: 'checkout-button', checkoutType: 'express' })
-
-       // On click of the button provide the encrypted merchant properties as well as the checkoutType.
-       document.querySelector('.awesome-checkout-button').addEventListener('click', () => {
-           encrypt().then(merchantProperties => {
-               Tingg.renderCheckout({
-                   merchantProperties: merchantProperties,
-                   checkoutType: 'redirect'
-               })
-           })
-       });
-
-       function encrypt() {
-            return fetch(encryptionURL,{
-                method:'POST',
-                body:JSON.stringify(merchantProperties),
-                mode:'cors'
+      document
+        .querySelector(".awesome-checkout-button")
+        .addEventListener("click", function () {
+          fetch("http://localhost:5000/checkout?type=redirect")
+            .then((resp) => {
+              return resp.json();
             })
-            .then(response =>response.json())
-       }
+            .then((json) => {
+              console.log(json);
+              window.location.href = json.data;
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        });
     </script>
-    <script
-      src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js"
-      data-cf-settings="79d2fc9770430ad249f3dde5-|49"
-      defer=""
-    ></script>
   </body>
 </html>

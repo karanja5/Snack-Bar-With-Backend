@@ -1,39 +1,53 @@
 const cors = require("cors");
 
 const express = require("express");
-const Encryption = require("./encryption.router");
+const Encryption = require("./Encryption");
 
 const app = express();
-const port = 3000;
+const port = 5000;
 
 app.use(cors());
-// enable parsing application/json
 app.use(express.json());
 
-app.post("/checkout-encryption", (req, res) => {
-  const accessKey = "<YOUR_ACCESS_KEY>";
-  const IVKey = "<YOUR_IV_KEY>";
-  const secretKey = "<YOUR_SECRET_KEY>";
-  const algorithm = "aes-256-cbc";
+const payload = {
+  // un-encrypted parameters collected against a request in json format
+  merchantTransactionID: "hureeh098856",
+  requestAmount: "100",
+  currencyCode: "KES",
+  accountNumber: "10092019",
+  serviceCode: "SASDEV1878",
+  dueDate: "2023-05-09 23:59:59", //Must be a future date
+  requestDescription: "Dummy merchant transaction",
+  countryCode: "KE",
+  languageCode: "en",
+  payerClientCode: "",
+  MSISDN: "+254700000000", //Must be a valid number
+  customerFirstName: "John",
+  customerLastName: "Smith",
+  customerEmail: "john.smith@example.com",
+  successRedirectUrl: "",
+  failRedirectUrl: "",
+  pendingRedirectUrl: "",
+  paymentWebhookUrl: "",
+};
 
-  // get the request body
-  const requestBody = req.body;
+const accessKey =
+  "$2a$08$wOUKIueeM.AEAl93C90C0e0nxgW6GmO2becZefWoynoFrxg2JB/1a";
+const IVKey = "knRY7z3GqBQVTyLd";
+const secretKey = "CHnbZQ7kBcWqgpX6";
+const algorithm = "aes-256-cbc";
+
+app.get("/checkout", (req, res) => {
+  const checkoutType = ["modal", "redirect"].includes(req.query?.type)
+    ? req.query?.type
+    : "redirect";
 
   let encryption = new Encryption(IVKey, secretKey, algorithm);
 
-  const payload = JSON.stringify(requestBody).replace(/\//g, "\\/");
+  const params = encryption.encrypt(JSON.stringify(payload));
+  const URL = `https://developer.tingg.africa/checkout/v2/express/?params=${params}&accessKey=${accessKey}&countryCode=${payload.countryCode}`;
 
-  console.log(
-    `https://developer.tingg.africa/checkout/v2/express/?params=${encryption.encrypt(
-      payload
-    )}&accessKey=${accessKey}&countryCode=${requestBody.countryCode}`
-  );
-  // return a JSON response
-  res.json({
-    params: encryption.encrypt(payload),
-    accessKey,
-    countryCode: requestBody.countryCode,
-  });
+  res.json({ success: true, data: URL });
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}!`));
