@@ -48,6 +48,9 @@ app.use("/api/foods", foodRouter);
 app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
 
+/* `app.use(express.static("public"))` is setting up middleware in the express application to serve
+static files from the "public" directory. This means that any files in the "public" directory can be
+accessed by the client without any additional routing. */
 app.use(express.static("public"));
 
 app.get("*", (req, res) => {
