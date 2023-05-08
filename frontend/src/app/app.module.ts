@@ -32,6 +32,7 @@ import { RegisterPageComponent } from "./components/pages/register-page/register
 import { PaymentPageComponent } from "./components/pages/payment-page/payment-page.component";
 import { PaymentButtonComponent } from "./components/partials/payment-button/payment-button.component";
 import { TrackingPageComponent } from "./components/pages/tracking-page/tracking-page.component";
+import { TinggPaymentButtonComponent } from "./components/partials/tingg-payment-button/tingg-payment-button.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +57,7 @@ import { TrackingPageComponent } from "./components/pages/tracking-page/tracking
     PaymentPageComponent,
     PaymentButtonComponent,
     TrackingPageComponent,
+    TinggPaymentButtonComponent,
   ],
   imports: [
     BrowserModule,
