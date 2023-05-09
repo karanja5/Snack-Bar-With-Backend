@@ -48,6 +48,9 @@ app.use("/api/foods", foodRouter);
 app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
 
+/* `app.use(express.static("public"))` is setting up middleware in the express application to serve
+static files from the "public" directory. This means that any files in the "public" directory can be
+accessed by the client without any additional routing. */
 app.use(express.static("public"));
 
 app.get("*", (req, res) => {
@@ -58,6 +61,7 @@ const port = process.env.PORT || 5000;
 /* `app.listen(port, () => {...})` is starting the express application and listening for incoming
 requests on the specified port. When the server starts listening, it logs a message to the console
 indicating that the web server is running and the URL where it can be accessed. */
+
 app.listen(port, () => {
   console.log("Web server is running on http://localhost:" + port);
 });
