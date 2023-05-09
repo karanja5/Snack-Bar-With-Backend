@@ -1,58 +1,40 @@
-<script src="https://developer.tingg.africa/checkout/v2/tingg-checkout.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
 
-<button class="awesome-checkout-button">Pay</button> //any name
+  <body>
+    <button class="awesome-checkout-button"></button>
 
-<script type="text/javascript">
-  //   <!-- `const payload` is defining an object that contains un-encrypted parameters collected against a
-  //   request in JSON format. These parameters will be used later in the code to be encrypted and sent to
-  //   the Tingg API for payment processing. -->
-  const payload = {
-    //   "merchantTransactionID" : "testing123",
-    //   "requestAmount" : 200,
-    //   "currencyCode" : "KES",
-    //   "accountNumber" : "ACC123",
-    //   "serviceCode" : "TESTDEV123",
-    //   "dueDate" : "2023-11-16 0:0:0",
-    //   "requestDescription" : "Getting service/good x",
-    //   "countryCode" : "KE",
-    //   "languageCode": "en",
-    //   "customerFirstName" :"John",
-    //   "customerLastName" : "Smith",
-    //   "MSISDN" : "254712345678",
-    //   "customerEmail" : "johndoe@gmail.com",
-    //   "paymentWebhookUrl" : "<YOUR_CALLBACK_URL>",
-    //   "successRedirectUrl" : "<YOUR_SUCCESS_REDIRECT_URL>",
-    //   "failRedirectUrl" : "<YOUR_FAIL_REDIRECT_URL>"
-    // un-encrypted parameters collected against a request in json format
-  };
-  const checkoutType = "redirect"; // or 'modal'
+    <script src="https://developer.tingg.africa/checkout/v2/tingg-checkout.js"></script>
 
-  // Render the checkout button
-  Tingg.renderPayButton({
-    text: "Proceed to Checkout",
-    color: "purple",
-    className: "awesome-checkout-button",
-  });
+    <script type="text/javascript">
+      // Render the checkout button
+      Tingg.renderPayButton({
+        text: "Proceed to Checkout",
+        color: "purple",
+        className: "awesome-checkout-button",
+      });
 
-  document
-    .querySelector(".awesome-checkout-button")
-    .addEventListener("click", function () {
-      //Call the encryption URL to encrypt the params and render checkout
-      function encrypt() {
-        return fetch("<YOUR_ENCRYPTION_ENDPOINT>", {
-          method: "POST",
-          body: JSON.stringify(payload),
-          mode: "cors",
-        }).then((response) => response.json());
-      }
-      encrypt()
-        .then((response) => {
-          // Render the checkout page on click event
-          Tingg.renderCheckout({
-            checkoutType,
-            merchantProperties: response, //{params: '', accessKey: '', countryCode: ''}
-          });
-        })
-        .catch((error) => console.log(error));
-    });
-</script>
+      document
+        .querySelector(".awesome-checkout-button")
+        .addEventListener("click", function () {
+          fetch("http://localhost:5000/checkout?type=redirect")
+            .then((resp) => {
+              return resp.json();
+            })
+            .then((json) => {
+              console.log(json);
+              window.location.href = json.data;
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        });
+    </script>
+  </body>
+</html>
