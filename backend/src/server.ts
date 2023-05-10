@@ -11,6 +11,7 @@ import cors from "cors";
 import foodRouter from "./routers/food.router";
 import userRouter from "./routers/user.router";
 import orderRouter from "./routers/order.router";
+import checkoutRouter from "./routers/checkoutEncryption.router";
 import { dbConnect } from "./configs/database.config";
 
 dbConnect();
@@ -47,12 +48,12 @@ and any requests to "/api/users" will be handled by the user router. */
 app.use("/api/foods", foodRouter);
 app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
+app.use("/checkoutEncryption", checkoutRouter);
 
 /* `app.use(express.static("public"))` is setting up middleware in the express application to serve
 static files from the "public" directory. This means that any files in the "public" directory can be
 accessed by the client without any additional routing. */
 app.use(express.static("public"));
-
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
