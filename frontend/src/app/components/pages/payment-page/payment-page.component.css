@@ -30,27 +30,10 @@
 .buttons {
   margin-top: 2rem;
   max-width: 35rem;
+  border-bottom: 1px solid grey;
 }
-
-button {
-  color: whitesmoke;
-  background-color: royalblue;
-  border: none;
-  width: 50vw;
-  max-width: 25rem;
-  height: 3rem;
-  opacity: 1;
-  font-size: 1.3rem;
-  border-radius: 0.5rem;
-  margin-left: 5rem;
-  margin-bottom: 1rem;
-}
-
-button:hover {
-  opacity: 0.85;
-  transition: 0.5s ease-in-out;
-  box-shadow: 2px 2px 2px 2px #ccc;
-  cursor: pointer;
+#tingg-button {
+  margin-bottom: 5rem;
 }
 
 .arrow {
