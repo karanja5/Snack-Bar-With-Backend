@@ -23,3 +23,8 @@ export const ORDER_CREATE_URL = ORDER_URL + "/create";
 export const NEW_ORDER_FOR_CURRENT_USER_URL = ORDER_URL + "/newOrder";
 export const PAY_FOR_ORDER_FOR_CURRENT_USER_URL = ORDER_URL + "/payForOrder";
 export const TRACKING_ORDER_FOR_CURRENT_USER_URL = ORDER_URL + "/track/";
+
+const TINGG_URL = BASE_URL + "/api/tinggCheckout";
+export const POST_ORDER_URL = TINGG_URL + "/postOrder";
+export const CHECKOUT_ENCRYPTION_URL =
+  TINGG_URL + "/checkoutEncryption?type=redirect";

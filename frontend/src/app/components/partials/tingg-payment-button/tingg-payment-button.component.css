@@ -1,0 +1,14 @@
+div {
+  text-align: center;
+}
+
+div button {
+  width: 35rem;
+  flex-shrink: 1;
+}
+
+@media (max-width: 700px) {
+  div button {
+    width: 81vw;
+  }
+}
