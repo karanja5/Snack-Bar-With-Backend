@@ -1,3 +1,5 @@
+/* The Encryption class provides a method to encrypt a payload using a secret key and initialization
+vector (IV) with a specified algorithm. */
 import * as crypto from "crypto";
 
 class Encryption {

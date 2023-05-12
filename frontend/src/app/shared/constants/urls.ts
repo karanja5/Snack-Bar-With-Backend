@@ -1,9 +1,9 @@
-/* This code defines a set of URLs that are used by the frontend to make requests to the backend. The
-`BASE_URL` variable is the root URL for the backend API, and the other URLs are constructed by
-appending specific endpoints to the `BASE_URL`. These URLs are exported as constants so that they
-can be easily imported and used in other parts of the frontend code. By using constants instead of
-hardcoding URLs, the code becomes more maintainable and flexible, as the URLs can be easily changed
-if the backend is deployed to a different location. */
+/* This is a TypeScript file that exports a set of constants that represent URLs for various API
+endpoints. The `environment` object is imported from a file that contains environment-specific
+configuration values, such as the base URL for the API. The `BASE_URL` constant is used to construct
+the other URL constants. These URL constants are likely used throughout the application to make API
+requests to the backend server. */
+
 import { environment } from "src/environments/environment";
 
 const BASE_URL = environment.BASE_URL;

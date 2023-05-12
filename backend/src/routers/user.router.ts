@@ -6,7 +6,6 @@ sends a response containing the user object with the JWT token added. If no matc
 it sends a 400 status code with an error message indicating that the email or password is invalid.
 The `import` statements at the beginning of the code are importing necessary modules and data. */
 import { Router } from "express";
-// import { sampleUsers } from "../data"; //I don't need this anymore because I have seeded the database
 import Jwt from "jsonwebtoken";
 import asyncHandler from "express-async-handler";
 import { IUser, UserModel } from "../models/user.models";
@@ -14,20 +13,6 @@ import bcrypt from "bcryptjs";
 
 const BAD_REQUEST = 400;
 const router = Router();
-
-// router.get(
-//   "/seed",
-//   asyncHandler(async (req, res) => {
-//     const usersCount = await UserModel.countDocuments();
-//     if (usersCount > 0) {
-//       res.send("Users already seeded");
-//       return;
-//     }
-//     await UserModel.create(sampleUsers);
-//     res.send("Users seeded");
-//   })
-// );
-//I have already seeded the database so I don't need to seed it again
 
 /* This code sets up a POST endpoint at "/api/users/login" that handles user login requests. It
 extracts the email and password from the request body using destructuring assignment. It then

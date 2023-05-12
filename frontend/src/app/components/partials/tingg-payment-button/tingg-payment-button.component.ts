@@ -19,6 +19,13 @@ export class TinggPaymentButtonComponent implements OnInit {
     private router: Router
   ) {}
 
+  /* `renderTinggButton()` is a method that is responsible for rendering the Tingg payment button on
+  the component's template. It uses the `Tingg.renderPayButton()` method to create the button with
+  the specified text, color, and class name. It also adds an event listener to the button that
+  triggers a series of actions when clicked, including sending a POST request to a checkout
+  encryption URL with the order details, redirecting the user to the payment page, clearing the
+  cart, and navigating to the order tracking page. */
+
   renderTinggButton() {
     Tingg.renderPayButton({
       text: "Pay with Tingg",

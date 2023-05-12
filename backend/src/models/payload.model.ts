@@ -1,9 +1,11 @@
+/* This code is defining a Mongoose schema and model for a payload object that will be used in a
+Node.js application. The `import` statement is importing the `Schema` and `model` classes from the
+Mongoose library. The `IPayload` interface defines the structure of the payload object. The
+`PayloadSchema` variable defines the schema for the payload object using the `Schema` class and the
+`PayloadModel` variable defines the model for the payload object using the `model` class. The schema
+includes various properties with their data types and validation rules, and the model is used to
+interact with the database to create, read, update, and delete payload objects. */
 import { Schema, model } from "mongoose";
-
-/* This code defines a Mongoose schema for an payload in a restaurant. The schema specifies the
-properties of a payload, such as its user ID, items, total, status, and other attributes. It also
-includes options for the schema, such as enabling virtuals and timestamps. The schema is exported as
-`PayloadSchema` for use in creating a Mongoose model for the "Order" collection in the database. */
 
 export interface IPayload {
   merchantTransactionID: string;
