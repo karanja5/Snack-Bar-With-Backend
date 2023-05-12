@@ -54,7 +54,6 @@ app.use("/api/tinggCheckout", checkoutRouter);
 static files from the "public" directory. This means that any files in the "public" directory can be
 accessed by the client without any additional routing. */
 app.use(express.static("public"));
-
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });

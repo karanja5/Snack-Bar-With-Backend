@@ -1,11 +1,11 @@
 import { Router } from "express";
 import Encryption from "../configs/encryption.config";
-import { OrderModel } from "../models/order.model";
-import { OrderStatus } from "../constants/order_status_enum";
+// import { OrderModel } from "../models/order.model";
+// import { OrderStatus } from "../constants/order_status_enum";
 import asyncHandler from "express-async-handler";
 import { IPayload } from "../models/payload.model";
 // import { random } from "lodash";
-import { TRACKING_ORDER_FOR_CURRENT_USER_URL } from "../../../frontend/src/app/shared/constants/urls";
+// import { TRACKING_ORDER_FOR_CURRENT_USER_URL } from "../../../frontend/src/app/shared/constants/urls";
 
 const router = Router();
 
@@ -37,7 +37,7 @@ router.post(
       customerFirstName: firstName,
       customerLastName: lastName,
       customerEmail: currentOrder.email,
-      successRedirectUrl: "localhost:4200/track" + currentOrder._id,
+      successRedirectUrl: "localhost:4200/track/" + currentOrder._id,
       failRedirectUrl: "localhost:4200/payment",
       pendingRedirectUrl: "",
       paymentWebhookUrl:

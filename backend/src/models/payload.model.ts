@@ -1,6 +1,4 @@
-import { Schema, Types, model } from "mongoose";
-import { OrderStatus } from "../constants/order_status_enum";
-import { OrderItemSchema } from "./order.model";
+import { Schema, model } from "mongoose";
 
 /* This code defines a Mongoose schema for an payload in a restaurant. The schema specifies the
 properties of a payload, such as its user ID, items, total, status, and other attributes. It also
