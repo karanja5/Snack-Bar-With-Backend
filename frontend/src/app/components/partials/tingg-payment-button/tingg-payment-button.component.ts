@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from "@angular/core";
 import { Order } from "src/app/shared/models/Order";
 import { CHECKOUT_ENCRYPTION_URL } from "src/app/shared/constants/urls";
 import { ToastrService } from "ngx-toastr";
+import { CartService } from "src/app/services/cart.service";
+import { Router } from "@angular/router";
 // import { OrderService } from "src/app/services/order.service";
 declare var Tingg: any;
 @Component({
@@ -11,7 +13,11 @@ declare var Tingg: any;
 })
 export class TinggPaymentButtonComponent implements OnInit {
   @Input() order!: Order;
-  constructor(private toastrService: ToastrService) {}
+  constructor(
+    private toastrService: ToastrService,
+    private cartService: CartService,
+    private router: Router
+  ) {}
 
   renderTinggButton() {
     Tingg.renderPayButton({
@@ -40,6 +46,10 @@ export class TinggPaymentButtonComponent implements OnInit {
         .then((json) => {
           console.log(json);
           window.location.href = json.data;
+        })
+        .then(() => {
+          this.cartService.clearCart();
+          this.router.navigateByUrl("/track/" + this.order.id);
         })
         .catch((error) => {
           this.toastrService.error("Payment Failed", error);
