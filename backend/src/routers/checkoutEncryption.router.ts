@@ -1,5 +1,5 @@
 import { Router } from "express";
-import Encryption from "../routers/encryption";
+import Encryption from "../routers/encryption.d";
 // import { OrderModel } from "../models/order.model";
 // import { OrderStatus } from "../constants/order_status_enum";
 import asyncHandler from "express-async-handler";
