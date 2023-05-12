@@ -72,6 +72,11 @@ router.post(
       token: "",
     };
 
+    /* `const dbUser = await UserModel.create(newUser);` is creating a new user in the database using
+    the `create` method of the `UserModel` model. It takes the `newUser` object as an argument,
+    which contains the user's information such as name, email, password, and phone number. The
+    `create` method returns a promise that resolves to the newly created user object in the
+    database, which is then assigned to the `dbUser` constant. */
     const dbUser = await UserModel.create(newUser);
     /* `res.send(generateTokenResponse(dbUser));` is sending a response to the client with the user
     object and a JSON Web Token (JWT) generated using the `generateTokenResponse` function. The
