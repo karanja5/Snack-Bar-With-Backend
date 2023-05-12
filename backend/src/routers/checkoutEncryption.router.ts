@@ -6,14 +6,13 @@ import asyncHandler from "express-async-handler";
 import { IPayload, PayloadModel } from "../models/payload.model";
 import { OrderStatus } from "../constants/order_status_enum";
 import { OrderModel } from "../models/order.model";
-import { forEachChild } from "typescript";
 // import { random } from "lodash";
 // import { TRACKING_ORDER_FOR_CURRENT_USER_URL } from "../../../frontend/src/app/shared/constants/urls";
 
 const router = Router();
 
 const accessKey = process.env.ACCESS_KEY;
-const IVKey = process.env.IV_KEY;
+const IVKey = process.env.IV_KEY!;
 const secretKey: string = process.env.SECRET_KEY!;
 const algorithm: string = process.env.ALGORITHM!;
 
