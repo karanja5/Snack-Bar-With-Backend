@@ -31,6 +31,9 @@
         "html-has-lang": "off"
       }
     ],
-    "meta-viewport": "off"
+    "meta-viewport": "off",
+    "detect-css-reflows/composite": "off",
+    "detect-css-reflows/paint": "off",
+    "detect-css-reflows/layout": "off"
   }
 }

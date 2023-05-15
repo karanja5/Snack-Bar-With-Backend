@@ -4,6 +4,9 @@ import asyncHandler from "express-async-handler";
 import { IPayload, PayloadModel } from "../models/payload.model";
 import { OrderStatus } from "../constants/order_status_enum";
 import { OrderModel } from "../models/order.model";
+import { environment } from "../../../frontend/src/environments/environment";
+
+const BASE_URL = environment.BASE_URL;
 
 const router = Router();
 
@@ -43,9 +46,8 @@ router.post(
       customerFirstName: firstName,
       customerLastName: lastName,
       customerEmail: currentOrder.email,
-      successRedirectUrl:
-        "https://webhook.site/#!/d486bb16-f476-4560-80b5-b3e3d7ecbaff/29332505-e047-4c08-8c68-17eb9b7ba6f6/1",
-      failRedirectUrl: `http://localhost:${port}/payment`,
+      successRedirectUrl: BASE_URL + "/track/" + currentOrder._id,
+      failRedirectUrl: `${BASE_URL}/payment`,
       pendingRedirectUrl: "",
       paymentWebhookUrl:
         "https://webhook.site/d486bb16-f476-4560-80b5-b3e3d7ecbaff",

@@ -4,7 +4,6 @@ import { CHECKOUT_ENCRYPTION_URL } from "src/app/shared/constants/urls";
 import { ToastrService } from "ngx-toastr";
 import { CartService } from "src/app/services/cart.service";
 import { Router } from "@angular/router";
-// import { OrderService } from "src/app/services/order.service";
 declare var Tingg: any;
 @Component({
   selector: "app-tingg-payment-button",
