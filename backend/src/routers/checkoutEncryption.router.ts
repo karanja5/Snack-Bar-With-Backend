@@ -24,11 +24,10 @@ router.post(
   asyncHandler(async (req: any, res) => {
     // console.log(req.body);
     const currentOrder = req.body;
-    let parts = currentOrder.name.split(" ");
-    let firstName = parts[0];
-    let lastName = parts[1];
-    let itemNames = currentOrder.items.map((item: any) => item.food.name);
-    console.log(itemNames);
+    const parts = currentOrder.name.split(" ");
+    const firstName = parts[0];
+    const lastName = parts[1];
+    const itemNames = currentOrder.items.map((item: any) => item.food.name);
     const payload: IPayload = {
       merchantTransactionID: currentOrder._id,
       requestAmount: currentOrder.totalPrice.toString(),
@@ -44,7 +43,7 @@ router.post(
       customerFirstName: firstName,
       customerLastName: lastName,
       customerEmail: currentOrder.email,
-      successRedirectUrl: `http://localhost:${port}/track/+${currentOrder._id}`,
+      successRedirectUrl: `http://localhost:${port}/track/${currentOrder._id}`,
       failRedirectUrl: `http://localhost:${port}/payment`,
       pendingRedirectUrl: "",
       paymentWebhookUrl:
@@ -57,14 +56,11 @@ router.post(
     const URL: string = `https://developer.tingg.africa/checkout/v2/express/?params=${params}&accessKey=${accessKey}&countryCode=${payload.countryCode}`;
 
     await PayloadModel.create(payload);
-    currentOrder.status = OrderStatus.PENDING;
+    currentOrder.status = OrderStatus.PAID;
     await OrderModel.findByIdAndUpdate(currentOrder._id, currentOrder); //Update the order status to PAID
     res.send({
       success: true,
       data: URL,
-      params: params,
-      accessKey: accessKey,
-      countryCode: payload.countryCode,
     });
   })
 );
