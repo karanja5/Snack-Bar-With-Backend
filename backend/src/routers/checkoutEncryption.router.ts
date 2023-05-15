@@ -11,6 +11,7 @@ const accessKey = process.env.ACCESS_KEY;
 const IVKey = process.env.IV_KEY!;
 const secretKey: string = process.env.SECRET_KEY!;
 const algorithm: string = process.env.ALGORITHM!;
+const port = process.env.PORT || 4200;
 
 /* This code defines a route for handling a POST request to "/checkoutEncryption". When this route is
 accessed, it creates a payload object with information about the current order, encrypts it using an
@@ -43,8 +44,8 @@ router.post(
       customerFirstName: firstName,
       customerLastName: lastName,
       customerEmail: currentOrder.email,
-      successRedirectUrl: "https://localhost:4200/track/" + currentOrder._id,
-      failRedirectUrl: "localhost:4200/payment",
+      successRedirectUrl: `http://localhost:${port}/track/+${currentOrder._id}`,
+      failRedirectUrl: `http://localhost:${port}/payment`,
       pendingRedirectUrl: "",
       paymentWebhookUrl:
         "https://webhook.site/d486bb16-f476-4560-80b5-b3e3d7ecbaff",
