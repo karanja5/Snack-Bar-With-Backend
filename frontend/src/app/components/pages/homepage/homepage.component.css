@@ -18,13 +18,14 @@ ul li a {
   overflow: hidden;
   color: royalblue;
   font-size: 0.9em;
+  transition: all 0.25s ease-out;
 }
 
 ul li a:hover {
   opacity: 0.85;
   transform: scale(1.035);
   cursor: pointer;
-  transition: 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 ul li a img {

@@ -43,8 +43,8 @@ router.post(
       customerFirstName: firstName,
       customerLastName: lastName,
       customerEmail: currentOrder.email,
-      successRedirectUrl: "",
-      failRedirectUrl: "",
+      successRedirectUrl: "http://localhost:4200/track/" + currentOrder._id,
+      failRedirectUrl: "http://localhost:4200/payment",
       pendingRedirectUrl: "",
       paymentWebhookUrl:
         "https://webhook.site/d486bb16-f476-4560-80b5-b3e3d7ecbaff",

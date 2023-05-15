@@ -14,26 +14,22 @@ class Encryption {
   }
 
   public encrypt(payload: string): string {
-    let key: any = crypto
+    let key: string | Buffer = crypto
       .createHash("sha256")
       .update(this.secretKey)
       .digest("hex")
       .substring(0, 32);
     key = Buffer.from(key);
-    let iv: any = crypto
+    let iv: string | Buffer = crypto
       .createHash("sha256")
       .update(this.IVKey)
       .digest("hex")
       .substring(0, 16);
     iv = Buffer.from(iv);
-    const cipher: any = crypto.createCipheriv(
-      this.algorithm,
-      Buffer.from(key),
-      iv
-    );
-    let encrypted = cipher.update(payload);
+    const cipher = crypto.createCipheriv(this.algorithm, Buffer.from(key), iv);
+    let encrypted: Buffer = cipher.update(payload);
     encrypted = Buffer.concat([encrypted, cipher.final()]);
-    let base64 = Buffer.from(encrypted, "binary").toString("base64");
+    let base64: string = Buffer.from(encrypted, 0).toString("base64"); //
     return Buffer.from(base64, "binary").toString("base64");
   }
 }
